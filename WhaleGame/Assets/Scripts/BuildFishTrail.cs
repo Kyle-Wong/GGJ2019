@@ -9,7 +9,7 @@ public class BuildFishTrail : MonoBehaviour
     public static List<Vector3> Trail;
     public static List<GameObject> FishList;
     public int MaxLength;
-    public static int FishGap = 15;
+    public static int FishGap = 40;
 
     void Awake()
     {
