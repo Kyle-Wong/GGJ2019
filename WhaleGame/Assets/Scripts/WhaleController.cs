@@ -81,6 +81,15 @@ public class WhaleController : MonoBehaviour
         FlipY = !(ZRotation > 90 && ZRotation < 270);
         if(FlipY)
         {
+            if(XRotation < 0)
+            {
+                XRotation += FlipSpeed*Time.deltaTime;
+            } else{
+                XRotation -= FlipSpeed*Time.deltaTime;
+            }
+            if(Mathf.Abs(XRotation-0)<epsilon)
+                XRotation = 0;
+        } else {
             if(XRotation < 180)
             {
                 XRotation += FlipSpeed*Time.deltaTime;
@@ -89,15 +98,6 @@ public class WhaleController : MonoBehaviour
             }
             if(Mathf.Abs(XRotation-180)<epsilon)
                 XRotation = 180;
-        } else {
-            if(XRotation < 0)
-            {
-                XRotation += FlipSpeed*Time.deltaTime;
-            } else{
-                XRotation -= FlipSpeed*Time.deltaTime;
-            }
-            if(Mathf.Abs(XRotation)<epsilon)
-                XRotation = 0;
         }
         transform.RotateAround(transform.position,transform.right,XRotation);
 
