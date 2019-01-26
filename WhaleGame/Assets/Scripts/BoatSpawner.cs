@@ -26,7 +26,7 @@ public class BoatSpawner : MonoBehaviour
         {
             foreach (GameObject a in anchors)
             {
-                Debug.Log(a.GetComponent<Anchors>().GetOccupied() == false);
+                //Debug.Log(a.GetComponent<Anchors>().GetOccupied() == false);
                 if (a.GetComponent<Anchors>().GetOccupied() == false)
                 {
                     GameObject boat = Instantiate(boatPrefab, transform.position, Quaternion.identity);

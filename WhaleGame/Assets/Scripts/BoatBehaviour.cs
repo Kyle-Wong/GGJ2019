@@ -35,13 +35,13 @@ public class BoatBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(myState);
+        //Debug.Log(myState);
 
         trashTimer += Time.deltaTime;
 
         if(trashTimer > trashDropRate)
         {
-            Debug.Log("Drop Trash");
+            //Debug.Log("Drop Trash");
             if(myState == GameState.Swaying)
                 DropTrash();
             trashTimer = 0f;
