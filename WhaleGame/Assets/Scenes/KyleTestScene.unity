@@ -514,32 +514,50 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4296313149347006486, guid: 7148902718fc4ee44bceef6796277f1f,
+    - target: {fileID: 4296313149347006484, guid: 7148902718fc4ee44bceef6796277f1f,
         type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: e5eaf9ad078ed764da678807ad4b2641, type: 2}
-    - target: {fileID: 4296313149347006487, guid: 7148902718fc4ee44bceef6796277f1f,
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4296313149347006484, guid: 7148902718fc4ee44bceef6796277f1f,
         type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 13400000, guid: f6367e9e17c008d468decbd318605d5a,
-        type: 2}
-    - target: {fileID: 4296313149347006489, guid: 7148902718fc4ee44bceef6796277f1f,
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4296313149347006484, guid: 7148902718fc4ee44bceef6796277f1f,
         type: 3}
-      propertyPath: FishPrefab
-      value: 
-      objectReference: {fileID: 3952029014117384656, guid: 49cab38a0443f7d4a8b340b012f5e265,
+      propertyPath: m_LocalScale.z
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4296313149347006488, guid: 7148902718fc4ee44bceef6796277f1f,
         type: 3}
-    - target: {fileID: 4296313149347006482, guid: 7148902718fc4ee44bceef6796277f1f,
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4296313149347006488, guid: 7148902718fc4ee44bceef6796277f1f,
         type: 3}
-      propertyPath: m_Mass
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[1].time
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4296313149347006482, guid: 7148902718fc4ee44bceef6796277f1f,
+    - target: {fileID: 4296313149347006488, guid: 7148902718fc4ee44bceef6796277f1f,
         type: 3}
-      propertyPath: m_Constraints
-      value: 72
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[1].value
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4296313149347006488, guid: 7148902718fc4ee44bceef6796277f1f,
+        type: 3}
+      propertyPath: m_Parameters.widthMultiplier
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4296313149347006488, guid: 7148902718fc4ee44bceef6796277f1f,
+        type: 3}
+      propertyPath: m_Parameters.colorGradient.key1.a
+      value: 0.53333336
+      objectReference: {fileID: 0}
+    - target: {fileID: 4296313149347006488, guid: 7148902718fc4ee44bceef6796277f1f,
+        type: 3}
+      propertyPath: m_Time
+      value: 0.7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7148902718fc4ee44bceef6796277f1f, type: 3}
