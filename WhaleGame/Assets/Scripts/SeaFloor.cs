@@ -6,10 +6,15 @@ public class SeaFloor : MonoBehaviour
 {
     public int trashLevel = 0;
 
+    OceanManager oceanManager;
+    private float width;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        oceanManager = GetComponentInParent<OceanManager>();
+        width = oceanManager.width;
+        ChangeFloorWidth();
     }
 
     // Update is called once per frame
@@ -26,4 +31,10 @@ public class SeaFloor : MonoBehaviour
             trashLevel++;
         }
     }
+
+    void ChangeFloorWidth()
+    {
+        transform.localScale += new Vector3(width, 0, 0);
+    }
+
 }

@@ -22,7 +22,6 @@ public class BoatBehaviour : MonoBehaviour
 
     private bool isSwaying = false;
     private float trashTimer;
-    private int currentPoint = 0;
     private Rigidbody rb;
     private bool goingRight = true;
      
@@ -119,7 +118,8 @@ public class BoatBehaviour : MonoBehaviour
 
     public void DropTrash()
     {
-        Instantiate(trashPrefab, this.transform.position, Quaternion.identity);
+        GameObject trash = Instantiate(trashPrefab, this.transform.position, Quaternion.identity);
+        trash.transform.SetParent(this.transform, true);
     }
 
     public void SetAnchor(Vector3 pos)
