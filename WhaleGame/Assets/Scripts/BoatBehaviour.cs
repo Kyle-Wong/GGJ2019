@@ -42,7 +42,8 @@ public class BoatBehaviour : MonoBehaviour
         if(trashTimer > trashDropRate)
         {
             Debug.Log("Drop Trash");
-            DropTrash();
+            if(myState == GameState.Swaying)
+                DropTrash();
             trashTimer = 0f;
         }
 
