@@ -11,9 +11,12 @@ public class WhaleController : MonoBehaviour
     public float DashSpeed;
     public float DashDuration;
     public AnimationCurve DashVelocityCurve;
+    private bool FlipY = false;
+    public float FlipSpeed;
     private float DashTimer;
     public bool IsDead = false;
-    private float CurrentAngle;
+    private float ZRotation;
+    private float XRotation;
     private Rigidbody rb;
     public enum WhaleState{
         MOVE,DASH,DEAD,STOPPED,PREGAME
@@ -26,6 +29,7 @@ public class WhaleController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         State = WhaleState.MOVE;
         DashTimer = DashDuration;
+        XRotation = transform.rotation.eulerAngles.x;
     }
 
     // Update is called once per frame
@@ -37,7 +41,7 @@ public class WhaleController : MonoBehaviour
         switch(State)
         {
             case WhaleState.MOVE:
-                RotateWhale();
+                RotateWhaleDirection();
                 MoveWhale(MoveSpeed);
                 if(Input.GetMouseButtonDown(0)) //left mouse
                 {
@@ -58,15 +62,45 @@ public class WhaleController : MonoBehaviour
             case WhaleState.PREGAME:
                 break;
         }
+        KeepWhaleUpright();
     }
-    private void RotateWhale()
+    private void RotateWhaleDirection()
     {
-        transform.rotation = Quaternion.RotateTowards(Quaternion.Euler(0,0,CurrentAngle),Quaternion.Euler(0,0,GetAngleToMouse()),RotationSpeed*Time.deltaTime);
-        CurrentAngle = transform.rotation.eulerAngles.z;
+        
+        transform.rotation = Quaternion.RotateTowards(Quaternion.Euler(0,0,ZRotation),Quaternion.Euler(0,0,GetAngleToMouse()),RotationSpeed*Time.deltaTime);
+        ZRotation = transform.rotation.eulerAngles.z;
     }
     private void MoveWhale(float velocity)
     {
         rb.velocity = transform.right*(-1)*velocity;
+    }
+    private void KeepWhaleUpright()
+    {
+        transform.rotation = Quaternion.Euler(0,0,ZRotation);
+        float epsilon = 10;
+        FlipY = !(ZRotation > 90 && ZRotation < 270);
+        if(FlipY)
+        {
+            if(XRotation < 180)
+            {
+                XRotation += FlipSpeed*Time.deltaTime;
+            } else{
+                XRotation -= FlipSpeed*Time.deltaTime;
+            }
+            if(Mathf.Abs(XRotation-180)<epsilon)
+                XRotation = 180;
+        } else {
+            if(XRotation < 0)
+            {
+                XRotation += FlipSpeed*Time.deltaTime;
+            } else{
+                XRotation -= FlipSpeed*Time.deltaTime;
+            }
+            if(Mathf.Abs(XRotation)<epsilon)
+                XRotation = 0;
+        }
+        transform.RotateAround(transform.position,transform.right,XRotation);
+
     }
     private void Dash()
     {
@@ -80,5 +114,9 @@ public class WhaleController : MonoBehaviour
         Vector2 MoveVector = new Vector2(0.5f,0.5f)-MouseWorldPoint;
         return Mathf.Rad2Deg*Mathf.Atan2(MoveVector.y,MoveVector.x);
     }
-    
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.blue;
+        Gizmos.DrawRay(new Ray(transform.position,transform.right*-1));
+    }
 }
