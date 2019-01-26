@@ -293,6 +293,7 @@ MonoBehaviour:
   FishPrefab: {fileID: 3952029014117384656, guid: 49cab38a0443f7d4a8b340b012f5e265,
     type: 3}
   MaxFishCount: 8
+  FishGap: 13
 --- !u!114 &4296313149347006483
 MonoBehaviour:
   m_ObjectHideFlags: 0

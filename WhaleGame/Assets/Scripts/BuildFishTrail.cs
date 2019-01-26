@@ -10,7 +10,7 @@ public class BuildFishTrail : MonoBehaviour
     public static List<GameObject> FishList;
     public int MaxFishCount = 8;
     private int MaxLength;
-    public static int FishGap = 40;
+    public int FishGap = 20;
 
     void Awake()
     {
@@ -34,7 +34,7 @@ public class BuildFishTrail : MonoBehaviour
     }
     public void AddFish()
     {
-        int index = FishGap;
+        int index = (int)(FishGap*1.8f);
         if(FishList.Count > 0)
             index = FishList[FishList.Count-1].GetComponent<FollowTrail>().desiredIndex+FishGap;
         if(index >= MaxLength){
