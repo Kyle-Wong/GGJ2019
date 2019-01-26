@@ -5,7 +5,11 @@ using UnityEngine;
 public class FollowTrail : MonoBehaviour
 {
     // Start is called before the first frame update
-    public int index;
+    public int desiredIndex;
+    [HideInInspector]
+    public float currentIndex;
+    public float acceleration;
+
     void Start()
     {
     }
@@ -13,7 +17,18 @@ public class FollowTrail : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(BuildFishTrail.Trail.Count > index)
-            transform.position = BuildFishTrail.Trail[index];
+        
+        if(BuildFishTrail.Trail.Count > (int)currentIndex)
+        {
+            transform.position = BuildFishTrail.Trail[(int)currentIndex];
+            if((int)currentIndex > desiredIndex)
+            {
+                currentIndex -= acceleration*Time.deltaTime;
+            } else if((int)currentIndex < desiredIndex)
+            {
+                currentIndex += acceleration*Time.deltaTime;
+            }
+        }
+        
     }
 }
