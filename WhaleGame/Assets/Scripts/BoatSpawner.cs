@@ -8,21 +8,13 @@ public class BoatSpawner : MonoBehaviour
     public GameObject boatPrefab;
 
     private float timer = 0f;
-    private Transform[] anchors;
-    
+    private GameObject[] anchors;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        anchors = this.GetComponentsInChildren<Transform>();
-        foreach(Transform a in anchors)
-        {
-            Debug.Log(a.transform.position);
-
-            Anchors anc = a.GetComponentInParent<Anchors>();
-
-            Debug.Log(anc.GetOccupied());
-        }
+        anchors = GameObject.FindGameObjectsWithTag("Anchor");
     }
 
     // Update is called once per frame
@@ -32,18 +24,18 @@ public class BoatSpawner : MonoBehaviour
 
         if(timer >= spawnRate)
         {
-            /*foreach (Transform a in anchors)
+            foreach (GameObject a in anchors)
             {
-                Debug.Log(a.GetComponentInParent<Anchors>().getOccupied() == false);
-                if (a.GetComponentInParent<Anchors>().getOccupied() == false)
+                Debug.Log(a.GetComponent<Anchors>().GetOccupied() == false);
+                if (a.GetComponent<Anchors>().GetOccupied() == false)
                 {
                     GameObject boat = Instantiate(boatPrefab, transform.position, Quaternion.identity);
-                    boat.GetComponent<BoatBehaviour>().SetAnchor(a.position);
+                    boat.GetComponent<BoatBehaviour>().SetAnchor(a.transform.position);
 
-                    a.GetComponentInParent<Anchors>().toggleOccupied();
+                    a.GetComponentInParent<Anchors>().ToggleOccupied();
                     break;
                 }
-            }*/
+            }
             timer = 0f;
         }
     }
