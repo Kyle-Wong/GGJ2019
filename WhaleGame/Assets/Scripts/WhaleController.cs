@@ -8,20 +8,68 @@ public class WhaleController : MonoBehaviour
     private Camera MainCam;
     public float RotationSpeed;
     public float MoveSpeed;
+    public float DashSpeed;
+    public float DashDuration;
+    public AnimationCurve DashVelocityCurve;
+    private float DashTimer;
+    public bool IsDead = false;
     private float CurrentAngle;
     private Rigidbody rb;
+    public enum WhaleState{
+        MOVE,DASH,DEAD,STOPPED,PREGAME
+    }
+    [HideInInspector]
+    public WhaleState State;
     void Awake()
     {
         MainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         rb = GetComponent<Rigidbody>();
+        State = WhaleState.MOVE;
+        DashTimer = DashDuration;
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
+    {
+        switch(State)
+        {
+            case WhaleState.MOVE:
+                RotateWhale();
+                MoveWhale(MoveSpeed);
+                if(Input.GetMouseButtonDown(0)) //left mouse
+                {
+                    Dash();
+                }
+                break;
+            case WhaleState.DASH:
+                MoveWhale(DashSpeed*DashVelocityCurve.Evaluate(DashTimer/DashDuration));
+                if(DashTimer < DashDuration)
+                    DashTimer += Time.deltaTime;
+                else    
+                    State = WhaleState.MOVE;
+                break;
+            case WhaleState.DEAD:
+                break;
+            case WhaleState.STOPPED:
+                break;
+            case WhaleState.PREGAME:
+                break;
+        }
+    }
+    private void RotateWhale()
     {
         transform.rotation = Quaternion.RotateTowards(Quaternion.Euler(0,0,CurrentAngle),Quaternion.Euler(0,0,GetAngleToMouse()),RotationSpeed*Time.deltaTime);
         CurrentAngle = transform.rotation.eulerAngles.z;
-        rb.velocity = transform.right*(-1)*MoveSpeed*Time.deltaTime;
+    }
+    private void MoveWhale(float velocity)
+    {
+        rb.velocity = transform.right*(-1)*velocity;
+    }
+    private void Dash()
+    {
+        DashTimer = 0;
+        State = WhaleState.DASH;
+        
     }
     private float GetAngleToMouse()
     {
