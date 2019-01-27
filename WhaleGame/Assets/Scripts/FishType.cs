@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum FishTypes { Nemo, Dory, Sun };
-
 public class FishType : MonoBehaviour
 {
 
