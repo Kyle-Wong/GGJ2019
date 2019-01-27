@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum FishTypes { Nemo, Dory, Sun, Hairtail};
+public enum FishTypes { Nemo, Dory, Sun, Hairtail };
 
 public class FishHome : MonoBehaviour
 {
@@ -25,7 +25,7 @@ public class FishHome : MonoBehaviour
         Destroy(this.gameObject, lifetime);
         
         myType = (FishTypes)Random.Range(0, 4);
-
+        /*
         switch(myType)
         {
             case FishTypes.Dory:
@@ -45,6 +45,7 @@ public class FishHome : MonoBehaviour
                 break;
         }
         meshRender.material = n_mat;
+        mesh*/
 
     }
 
@@ -54,6 +55,7 @@ public class FishHome : MonoBehaviour
 
     }
 
+    /*
     private void ChangeMaterials(string colorName)
     {
         for(int i = 0; i < mats.Length; i++)
@@ -65,7 +67,7 @@ public class FishHome : MonoBehaviour
                 mats[i] = temp;
             }
         }
-    }
+    }*/
 
     private void OnTriggerEnter(Collider other)
     {
