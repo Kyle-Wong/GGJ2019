@@ -556,6 +556,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6950412948032042944, guid: 8b63605ea9f314384b9c25b71d9314aa,
         type: 3}
+      propertyPath: yMax
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6950412948032042944, guid: 8b63605ea9f314384b9c25b71d9314aa,
+        type: 3}
       propertyPath: spawnRate
       value: 1
       objectReference: {fileID: 0}
