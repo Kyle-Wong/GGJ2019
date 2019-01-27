@@ -5,22 +5,22 @@ using UnityEngine;
 public class WhaleController : MonoBehaviour
 {
     // Start is called before the first frame update
-    private Camera MainCam;
+    protected Camera MainCam;
     public float RotationSpeed;
     public float MoveSpeed;
-    private float MaxSpeed;
+    protected float MaxSpeed;
     public float DashSpeed;
     public float DashDuration;
     public AnimationCurve DashVelocityCurve;
-    private bool FlipY = false;
+    protected bool FlipY = false;
     public float FlipSpeed;
-    private float DashTimer;
-    private float StoppedTimer;
+    protected float DashTimer;
+    protected float StoppedTimer;
     public float LandInWaterParalysisDuration;
     public bool IsDead = false;
-    private float ZRotation;
-    private float XRotation;
-    private Rigidbody rb;
+    protected float ZRotation;
+    protected float XRotation;
+    protected Rigidbody rb;
     public bool InWater;
     public enum WhaleState{
         MOVE,DASH,DEAD,AIRBORNE,PREGAME,STOPPED
@@ -76,22 +76,22 @@ public class WhaleController : MonoBehaviour
         }
         KeepWhaleUpright();
     }
-    private void RotateWhaleDirection()
+    protected void RotateWhaleDirection()
     {
         
         transform.rotation = Quaternion.RotateTowards(Quaternion.Euler(0,0,ZRotation),Quaternion.Euler(0,0,GetAngleToMouse()),RotationSpeed*Time.deltaTime);
         ZRotation = transform.rotation.eulerAngles.z;
     }
-    private void MoveWhale(float velocity)
+    protected void MoveWhale(float velocity)
     {
         rb.AddForce(transform.right*(-1)*velocity,ForceMode.Force);
 
     }
-    private void DashWhale(float velocity)
+    protected void DashWhale(float velocity)
     {
         rb.velocity = transform.right*-1*velocity;
     }
-    private void KeepWhaleUpright()
+    protected void KeepWhaleUpright()
     {
         transform.rotation = Quaternion.Euler(0,0,ZRotation);
         float epsilon = 10;
@@ -166,7 +166,6 @@ public class WhaleController : MonoBehaviour
             InWater = true;
             rb.useGravity = false;
             if(State == WhaleState.AIRBORNE){
-                Debug.Log(transform.rotation.eulerAngles.z);
                 if(transform.rotation.eulerAngles.z > 268 && transform.rotation.eulerAngles.z < 330){
                     StopWhaleTemporarily(LandInWaterParalysisDuration);
                 }
