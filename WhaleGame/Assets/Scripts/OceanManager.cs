@@ -101,7 +101,7 @@ public class OceanManager : MonoBehaviour
                     float randx = Random.Range(width / 2.0f * -1, width / 2.0f);
                     float randy = Random.Range(yMin,yMax);
 
-                    Instantiate(fishHomePrefab, new Vector3(randx, randy, 0), Quaternion.identity);
+                    Instantiate(fishHomePrefab, new Vector3(randx, randy, 0), fishHomePrefab.transform.rotation);
 
                     fishHomeSpawned++;
                     Debug.Log("Fish home spawned");
