@@ -9,6 +9,10 @@ public class BoatBehaviour : MonoBehaviour
     public float patrolDistance;
     public GameObject trashPrefab;
     public float trashDropRate;
+    public float verticalTrashVelocity;
+    public float minHorizontalTrashVelocity;
+    public float maxHorizontalTrashVelocity;
+    
 
     public float boatSpeed;
     //public Transform[] patrolBounds;
@@ -120,6 +124,8 @@ public class BoatBehaviour : MonoBehaviour
     {
         GameObject trash = Instantiate(trashPrefab, this.transform.position, Quaternion.identity);
         trash.transform.SetParent(this.transform, true);
+        int direction = Random.value > 0.5f ? 1 : -1;
+        trash.GetComponent<Rigidbody>().velocity = new Vector3(direction*Random.Range(minHorizontalTrashVelocity,maxHorizontalTrashVelocity),verticalTrashVelocity,0);
     }
 
     public void SetAnchor(Vector3 pos)

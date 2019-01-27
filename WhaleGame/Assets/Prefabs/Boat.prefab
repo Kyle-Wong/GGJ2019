@@ -109,4 +109,7 @@ MonoBehaviour:
   trashPrefab: {fileID: 122673057999614380, guid: 710c34be7d6634e7ca5d572fbf41c9f2,
     type: 3}
   trashDropRate: 10
+  verticalTrashVelocity: 8
+  minHorizontalTrashVelocity: 2
+  maxHorizontalTrashVelocity: 6
   boatSpeed: 3

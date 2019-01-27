@@ -9,6 +9,8 @@ TagManager:
   - Seafloor
   - BoatSpawner
   - Fish
+  - FishHome
+  - Ocean
   layers:
   - Default
   - TransparentFX

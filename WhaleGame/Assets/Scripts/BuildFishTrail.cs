@@ -29,7 +29,7 @@ public class BuildFishTrail : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      
+        Debug.Log(FishList.Count);
         Trail.Insert(0,transform.position);
         if(Trail.Count >= MaxLength){
             Trail.RemoveAt(Trail.Count-1);
@@ -53,6 +53,7 @@ public class BuildFishTrail : MonoBehaviour
     */
     public static void AddFish(GameObject g)
     {
+        Debug.Log("FISH ADDED");
         BuildFishTrail instance = BuildFishTrail.instance;
         int index = instance.InitialGap+instance.FishGap;
         if(FishList.Count > 0)

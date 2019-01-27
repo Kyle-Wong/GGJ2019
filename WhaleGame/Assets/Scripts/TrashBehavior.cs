@@ -5,15 +5,37 @@ using UnityEngine;
 public class TrashBehavior : MonoBehaviour
 {
     // Start is called before the first frame update
+    public float WaterBuoyancy;
+    public float MaxUnderWaterFallSpeed;
+    public float WaterHorizontalDrag;
+    public bool InWater = false;
+    private Rigidbody rb;
+    private float LifeTime;
     void Start()
     {
-        
+        rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        
+        LifeTime += Time.deltaTime;
+        if(InWater)
+        {
+            if(Mathf.Abs(rb.velocity.y) > MaxUnderWaterFallSpeed)
+                rb.AddForce(Vector3.up*WaterBuoyancy,ForceMode.Force);
+            if(Mathf.Abs(rb.velocity.x) < WaterHorizontalDrag*Time.deltaTime){
+                rb.velocity = new Vector3(0,rb.velocity.y,0);
+            } else {
+                if(rb.velocity.x > 0)
+                {
+                    rb.velocity += Vector3.left*WaterHorizontalDrag*Time.deltaTime;
+                } else{
+                    rb.velocity += Vector3.right*WaterHorizontalDrag*Time.deltaTime;
+                }
+            }
+            
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -30,7 +52,11 @@ public class TrashBehavior : MonoBehaviour
     {
         if(other.CompareTag("Fish"))
         {
-            BuildFishTrail.RemoveFish(other.gameObject);
+            Destroy(other.gameObject);
+        }
+        if(other.CompareTag("Ocean") && LifeTime > 0.5f)
+        {
+            InWater = true;
         }
     }
 }
