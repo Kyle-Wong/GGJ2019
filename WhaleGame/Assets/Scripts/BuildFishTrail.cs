@@ -53,10 +53,6 @@ public class BuildFishTrail : MonoBehaviour
     */
     public static void AddFish(GameObject g)
     {
-<<<<<<< Updated upstream
-=======
-        //Debug.Log("FISH ADDED");
->>>>>>> Stashed changes
         BuildFishTrail instance = BuildFishTrail.instance;
         int index = instance.InitialGap+instance.FishGap;
         g.GetComponent<FollowTrail>().enabled = true;
