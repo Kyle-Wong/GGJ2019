@@ -23,5 +23,14 @@ public class TrashBehavior : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.CompareTag("Fish"))
+        {
+            Destroy(other.gameObject);
+        }
     }
 }
