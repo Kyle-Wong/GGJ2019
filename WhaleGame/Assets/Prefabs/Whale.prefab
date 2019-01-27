@@ -245,8 +245,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FishPrefab: {fileID: 3952029014117384656, guid: 49cab38a0443f7d4a8b340b012f5e265,
     type: 3}
-  MaxFishCount: 8
-  FishGap: 16
+  FishGap: 18
+  InitialGap: 10
 --- !u!114 &4296313149347006483
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -260,7 +260,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RotationSpeed: 180
-  MoveSpeed: 7.5
+  MoveSpeed: 15
   DashSpeed: 50
   DashDuration: 0.3
   DashVelocityCurve:
@@ -288,7 +288,9 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   FlipSpeed: 400
+  LandInWaterParalysisDuration: 0.3
   IsDead: 0
+  InWater: 0
   State: 0
 --- !u!54 &4296313149347006482
 Rigidbody:
@@ -299,7 +301,7 @@ Rigidbody:
   m_GameObject: {fileID: 4296313149347006490}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: 0
+  m_Drag: 1
   m_AngularDrag: 0.05
   m_UseGravity: 0
   m_IsKinematic: 0

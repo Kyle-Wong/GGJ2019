@@ -8,18 +8,22 @@ public class WhaleController : MonoBehaviour
     private Camera MainCam;
     public float RotationSpeed;
     public float MoveSpeed;
+    private float MaxSpeed;
     public float DashSpeed;
     public float DashDuration;
     public AnimationCurve DashVelocityCurve;
     private bool FlipY = false;
     public float FlipSpeed;
     private float DashTimer;
+    private float StoppedTimer;
+    public float LandInWaterParalysisDuration;
     public bool IsDead = false;
     private float ZRotation;
     private float XRotation;
     private Rigidbody rb;
+    public bool InWater;
     public enum WhaleState{
-        MOVE,DASH,DEAD,STOPPED,PREGAME
+        MOVE,DASH,DEAD,AIRBORNE,PREGAME,STOPPED
     }
     [HideInInspector]
     public WhaleState State;
@@ -30,6 +34,8 @@ public class WhaleController : MonoBehaviour
         State = WhaleState.MOVE;
         DashTimer = DashDuration;
         XRotation = transform.rotation.eulerAngles.x;
+        MaxSpeed = MoveSpeed;
+        StoppedTimer = 0;
     }
 
     // Update is called once per frame
@@ -46,7 +52,7 @@ public class WhaleController : MonoBehaviour
                 }
                 break;
             case WhaleState.DASH:
-                MoveWhale(DashSpeed*DashVelocityCurve.Evaluate(DashTimer/DashDuration));
+                DashWhale(DashSpeed*DashVelocityCurve.Evaluate(DashTimer/DashDuration));
                 if(DashTimer < DashDuration)
                     DashTimer += Time.deltaTime;
                 else    
@@ -54,9 +60,18 @@ public class WhaleController : MonoBehaviour
                 break;
             case WhaleState.DEAD:
                 break;
-            case WhaleState.STOPPED:
+            case WhaleState.AIRBORNE:
+                RotateWhaleDirection();
+                rb.AddForce(Vector3.down*4,ForceMode.Acceleration);
                 break;
             case WhaleState.PREGAME:
+                break;
+            case WhaleState.STOPPED:
+                if(StoppedTimer > 0)
+                    StoppedTimer -= Time.deltaTime;
+                else
+                    State = WhaleState.MOVE;
+                RotateWhaleDirection();
                 break;
         }
         KeepWhaleUpright();
@@ -69,7 +84,12 @@ public class WhaleController : MonoBehaviour
     }
     private void MoveWhale(float velocity)
     {
-        rb.velocity = transform.right*(-1)*velocity;
+        rb.AddForce(transform.right*(-1)*velocity,ForceMode.Force);
+
+    }
+    private void DashWhale(float velocity)
+    {
+        rb.velocity = transform.right*-1*velocity;
     }
     private void KeepWhaleUpright()
     {
@@ -105,6 +125,11 @@ public class WhaleController : MonoBehaviour
         State = WhaleState.DASH;
         
     }
+    private void StopWhaleTemporarily(float duration)
+    {
+        StoppedTimer = duration;
+        State = WhaleState.STOPPED;
+    }
     private float GetAngleToMouse()
     {
         Vector2 MouseWorldPoint = MainCam.ScreenToViewportPoint(Input.mousePosition);
@@ -123,9 +148,33 @@ public class WhaleController : MonoBehaviour
     {
         if(col.CompareTag("Fish"))
         {
-            Debug.Log("In list at pos: " + BuildFishTrail.FishList.IndexOf(col.gameObject));
             if(BuildFishTrail.FishList.IndexOf(col.gameObject) == -1 && BuildFishTrail.FishList.Count < BuildFishTrail.MaxFishCount)
                 BuildFishTrail.AddFish(col.gameObject);
+        }
+    }
+    void OnTriggerStay(Collider col)
+    {
+        if(col.CompareTag("Ocean"))
+        {
+            InWater = true;
+            rb.useGravity = false;
+            if(State == WhaleState.AIRBORNE){
+                Debug.Log(transform.rotation.eulerAngles.z);
+                if(transform.rotation.eulerAngles.z > 268 && transform.rotation.eulerAngles.z < 330){
+                    StopWhaleTemporarily(LandInWaterParalysisDuration);
+                }
+                else
+                    State = WhaleState.MOVE;
+            }
+        }
+    }
+    void OnTriggerExit(Collider col)
+    {
+        if(col.CompareTag("Ocean"))
+        {
+            InWater = false;
+            State = WhaleState.AIRBORNE;
+            rb.useGravity = true;
         }
     }
     void OnDrawGizmos()

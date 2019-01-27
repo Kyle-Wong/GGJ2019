@@ -326,7 +326,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 188753062}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 4300002, guid: c1c07c1bc62573444976e5be229c8c42, type: 3}
 --- !u!4 &188753066
 Transform:
   m_ObjectHideFlags: 0
@@ -571,7 +571,7 @@ GameObject:
   - component: {fileID: 530018147}
   m_Layer: 0
   m_Name: Water
-  m_TagString: Ocean
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -620,7 +620,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 530018146}
-  m_Mesh: {fileID: 4300000, guid: c1c07c1bc62573444976e5be229c8c42, type: 3}
+  m_Mesh: {fileID: 4300002, guid: c1c07c1bc62573444976e5be229c8c42, type: 3}
 --- !u!4 &530018149
 Transform:
   m_ObjectHideFlags: 0
@@ -873,8 +873,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 898639306}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.74, y: -0.38, z: 0}
-  m_LocalScale: {x: 80.74, y: 10.85, z: 1}
+  m_LocalPosition: {x: 1.74, y: -12.2, z: 0}
+  m_LocalScale: {x: 80.74, y: 34.65, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 17
@@ -2017,10 +2017,60 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4296313149347006489, guid: 7148902718fc4ee44bceef6796277f1f,
+    - target: {fileID: 4296313149347006483, guid: 7148902718fc4ee44bceef6796277f1f,
         type: 3}
-      propertyPath: FishGap
-      value: 18
+      propertyPath: DashSpeed
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4296313149347006483, guid: 7148902718fc4ee44bceef6796277f1f,
+        type: 3}
+      propertyPath: DashDuration
+      value: 0.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 4296313149347006483, guid: 7148902718fc4ee44bceef6796277f1f,
+        type: 3}
+      propertyPath: LandInWaterParalysisDuration
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4296313149347006483, guid: 7148902718fc4ee44bceef6796277f1f,
+        type: 3}
+      propertyPath: DashVelocityCurve.m_Curve.Array.data[1].value
+      value: 0.2466152
+      objectReference: {fileID: 0}
+    - target: {fileID: 4296313149347006483, guid: 7148902718fc4ee44bceef6796277f1f,
+        type: 3}
+      propertyPath: DashVelocityCurve.m_Curve.Array.data[1].time
+      value: 1.008535
+      objectReference: {fileID: 0}
+    - target: {fileID: 4296313149347006483, guid: 7148902718fc4ee44bceef6796277f1f,
+        type: 3}
+      propertyPath: DashVelocityCurve.m_Curve.Array.data[1].inSlope
+      value: -2.9999747
+      objectReference: {fileID: 0}
+    - target: {fileID: 4296313149347006483, guid: 7148902718fc4ee44bceef6796277f1f,
+        type: 3}
+      propertyPath: DashVelocityCurve.m_Curve.Array.data[1].outSlope
+      value: -2.9999747
+      objectReference: {fileID: 0}
+    - target: {fileID: 4296313149347006483, guid: 7148902718fc4ee44bceef6796277f1f,
+        type: 3}
+      propertyPath: DashVelocityCurve.m_Curve.Array.data[1].inWeight
+      value: 0.061234068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4296313149347006483, guid: 7148902718fc4ee44bceef6796277f1f,
+        type: 3}
+      propertyPath: DashVelocityCurve.m_Curve.Array.data[0].inSlope
+      value: -0.03270836
+      objectReference: {fileID: 0}
+    - target: {fileID: 4296313149347006483, guid: 7148902718fc4ee44bceef6796277f1f,
+        type: 3}
+      propertyPath: DashVelocityCurve.m_Curve.Array.data[0].outSlope
+      value: -0.03270836
+      objectReference: {fileID: 0}
+    - target: {fileID: 4296313149347006483, guid: 7148902718fc4ee44bceef6796277f1f,
+        type: 3}
+      propertyPath: DashVelocityCurve.m_Curve.Array.data[0].outWeight
+      value: 0.3583333
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7148902718fc4ee44bceef6796277f1f, type: 3}
