@@ -119,11 +119,11 @@ public class WhaleController : MonoBehaviour
         }
         
     }
-    void OnTriggerEnter(Collider collider)
+    void OnTriggerEnter(Collider col)
     {
-        if(collider.CompareTag("Fish"))
+        if(col.CompareTag("Fish"))
         {
-            BuildFishTrail.AddFish(collider.gameObject);
+            BuildFishTrail.AddFish(col.gameObject);
         }
     }
     void OnDrawGizmos()
