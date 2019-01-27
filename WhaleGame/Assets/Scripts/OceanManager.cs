@@ -82,8 +82,8 @@ public class OceanManager : MonoBehaviour
                 //fishHomeSpawned = GameObject.FindGameObjectsWithTag("Fish").Length;
                 //if (fishHomeSpawned < fishHomeMax)
                 //{
-                    float randx = Random.Range(width / 2.0f * -1, width / 2.0f);
-                    float randy = Random.Range(yMin,yMax);
+                    float randx = Random.Range((width-10f) / 2.0f * -1, (width-10f) / 2.0f);
+                    float randy = Random.Range(yMin+20,yMax-20);
                     int rand = Random.Range(0, fishes.Length);
 
                     Instantiate(fishes[rand], new Vector3(randx, randy, 0), Quaternion.identity);
