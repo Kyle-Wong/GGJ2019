@@ -96,13 +96,13 @@ public class BuildFishTrail : MonoBehaviour
             RemoveFish(FishIndex);
         }
     }
-    void OnDrawGizmos()
-    {
+    //void OnDrawGizmos()
+    //{
         
-        Gizmos.color = Color.green;
-        for(int i = 0; i < Trail.Count; i++)
-        {
-            Gizmos.DrawWireSphere(Trail[i],0.5f);
-        }
-    }
+    //    Gizmos.color = Color.green;
+    //    for(int i = 0; i < Trail.Count; i++)
+    //    {
+    //        Gizmos.DrawWireSphere(Trail[i],0.5f);
+    //    }
+    //}
 }
