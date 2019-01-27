@@ -25,6 +25,7 @@ public class FishHome : MonoBehaviour
         if (other.CompareTag("Fish"))
         {
             BuildFishTrail.RemoveFish(other.gameObject);
+            GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>().Score++;
             Destroy(this.gameObject, 3f);
         }
 
