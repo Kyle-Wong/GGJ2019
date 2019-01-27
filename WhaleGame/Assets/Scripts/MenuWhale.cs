@@ -11,10 +11,12 @@ public class MenuWhale : WhaleController
     public float LoopDuration;
     private float LoopTimer;
     private Vector3 StartingPosition;
+    private bool PlaySound;
     void Start()
     {
         StartingPosition = transform.position;
         LoopTimer = 0;
+        PlaySound = true;
     }
 
     // Update is called once per frame
@@ -30,6 +32,8 @@ public class MenuWhale : WhaleController
             rb.velocity = Vector3.zero;
             transform.rotation = Quaternion.Euler(0,0,0);
             ZRotation = transform.rotation.eulerAngles.z;
+            State = WhaleState.MOVE;
+            PlaySound = true;
         }
         if(State == WhaleState.MOVE){
             RotateWhaleDirection(ANGLEUP);
@@ -47,6 +51,21 @@ public class MenuWhale : WhaleController
         transform.rotation = Quaternion.RotateTowards(Quaternion.Euler(0,0,ZRotation),Quaternion.Euler(0,0,angle),RotationSpeed*Time.deltaTime);
         ZRotation = transform.rotation.eulerAngles.z;
     }
+    void OnTriggerEnter(Collider col)
+    {
+        if(col.CompareTag("Fish"))
+        {
+            if(BuildFishTrail.FishList.IndexOf(col.gameObject) == -1 && BuildFishTrail.FishList.Count < BuildFishTrail.MaxFishCount)
+            {
+                BuildFishTrail.AddFish(col.gameObject);
+                foreach (Transform t in col.transform) {
+                    if(t.gameObject.name.Equals("FishCollectIndicator")){
+                        Destroy(t.gameObject);
+                    }
+                }
+            }
+        }
+    }
     void OnTriggerStay(Collider col)
     {
         if(col.CompareTag("Ocean"))
@@ -54,7 +73,12 @@ public class MenuWhale : WhaleController
             InWater = true;
             rb.useGravity = false;
             if(State == WhaleState.AIRBORNE){
-                StartCoroutine(SpawnSplashPrefab(.15f));
+                if(PlaySound)
+                {
+                    StartCoroutine(SpawnSplashPrefab(.15f));
+                    PlaySound = false;
+                }
+                
                 State = WhaleState.MOVE;
             }
         }
@@ -82,6 +106,7 @@ public class MenuWhale : WhaleController
         for(int i = 0; i < 3; i++)
         {
             Transform g = Instantiate(FishType[i],transform.position,Quaternion.identity);
+            
         }
     }
 }

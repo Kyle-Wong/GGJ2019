@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
     // Start is called before the first frame update
@@ -44,6 +44,6 @@ public class PauseMenu : MonoBehaviour
     {
         if(!MainMenuController.AllowUIInput)
             return;
-        StartCoroutine(MainMenuController.TransitionThenLoad("MainMenu"));
+        SceneManager.LoadScene("MainMenu");
     }
 }

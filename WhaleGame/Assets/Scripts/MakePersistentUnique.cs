@@ -7,7 +7,7 @@ public class MakePersistentUnique : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        GameObject[] g = GameObject.FindGameObjectsWithTag("PersistentSoundObject");
+        GameObject[] g = GameObject.FindGameObjectsWithTag("UniqueSoundObject");
         if(g.Length > 1)
             Destroy(gameObject);
         else
