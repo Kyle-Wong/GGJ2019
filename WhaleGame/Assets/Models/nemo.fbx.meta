@@ -17,7 +17,17 @@ ModelImporter:
     4300002: polySurface3
     4300004: node_id5
     2186277476908879412: ImportLogs
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: 386
+    second: {fileID: 2800000, guid: 48fc6963d95abc04ea43cb3294c70908, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: 390
+    second: {fileID: 2800000, guid: e8b8dc17a88cf4b4590a32b9cdd70142, type: 3}
   materials:
     importMaterials: 1
     materialName: 0
