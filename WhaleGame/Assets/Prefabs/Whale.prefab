@@ -39,7 +39,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 444986100}
-  m_Mesh: {fileID: 4300000, guid: 2e7ddb6d98199c94197ce1e54cde5d61, type: 3}
+  m_Mesh: {fileID: 4300004, guid: b67b4ea02577e452a90bbe55c8562668, type: 3}
 --- !u!23 &444986102
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -245,8 +245,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FishPrefab: {fileID: 3952029014117384656, guid: 49cab38a0443f7d4a8b340b012f5e265,
     type: 3}
-  FishGap: 18
-  InitialGap: 10
+  FishGap: 12
+  InitialGap: -4
 --- !u!114 &4296313149347006483
 MonoBehaviour:
   m_ObjectHideFlags: 0

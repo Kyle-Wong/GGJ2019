@@ -9,6 +9,8 @@ public class WaterShading : MonoBehaviour
     public MeshRenderer Back;
     public Color StartColor;
     public Color EndColor;
+    public Color StartColorU;
+    public Color EndColorU;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +24,7 @@ public class WaterShading : MonoBehaviour
         Color newColor = Color.Lerp(StartColor,EndColor,progression);
         Front.material.SetColor("Color_FEB1F004",newColor);
         Back.material.SetColor("Color_FEB1F004",newColor);
-
+        Color underwaterColor = Color.Lerp(StartColorU, EndColorU, progression);
+        Front.material.SetColor("Color_D3DE913", underwaterColor);
     }
 }
