@@ -4,12 +4,18 @@ ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
+    100002: node_id5
     400000: //RootNode
+    400002: node_id5
     2100000: lambert1
+    2100002: Material_60
     2300000: //RootNode
+    2300002: node_id5
     3300000: //RootNode
+    3300002: node_id5
     4300000: polySurface2
     4300002: polySurface3
+    4300004: node_id5
     2186277476908879412: ImportLogs
   externalObjects: {}
   materials:
