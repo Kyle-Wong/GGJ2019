@@ -11,6 +11,7 @@ TagManager:
   - Fish
   - FishHome
   - Ocean
+  - Transition
   layers:
   - Default
   - TransparentFX
