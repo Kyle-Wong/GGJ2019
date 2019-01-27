@@ -11,6 +11,7 @@ public class GameController : MonoBehaviour
     public float GameTimer;
     [HideInInspector]
     public int Score;
+    public GameEndUIController GameOverController;
     void Start()
     {
         Score = 0;
@@ -22,9 +23,10 @@ public class GameController : MonoBehaviour
     void Update()
     {
         GameTimer += Time.deltaTime;
-        if(GameTimer > GameDuration)
+        if(!GameOver && GameTimer > GameDuration)
         {
             GameOver = true;
+            GameOverController.ShowUI(true);
         }
     }
 }

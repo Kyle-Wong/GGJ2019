@@ -12,6 +12,7 @@ TagManager:
   - FishHome
   - Ocean
   - Transition
+  - UniqueSoundObject
   layers:
   - Default
   - TransparentFX

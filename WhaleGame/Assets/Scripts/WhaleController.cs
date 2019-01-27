@@ -23,13 +23,16 @@ public class WhaleController : MonoBehaviour
     protected Rigidbody rb;
     public bool InWater;
     public enum WhaleState{
-        MOVE,DASH,DEAD,AIRBORNE,PREGAME,STOPPED
+        MOVE,DASH,DEAD,AIRBORNE,POSTGAME,STOPPED
     }
     [HideInInspector]
     public WhaleState State;
     public Transform SplashPrefab;
+    public AudioClip DashSound;
+    private AudioSource Source;
     void Awake()
     {
+        Source = GetComponent<AudioSource>();
         MainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         rb = GetComponent<Rigidbody>();
         State = WhaleState.MOVE;
@@ -42,6 +45,8 @@ public class WhaleController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        if(GameController.GameOver)
+            State = WhaleState.POSTGAME;
         switch(State)
         {
             case WhaleState.MOVE:
@@ -65,7 +70,8 @@ public class WhaleController : MonoBehaviour
                 RotateWhaleDirection();
                 rb.AddForce(Vector3.down*4,ForceMode.Acceleration);
                 break;
-            case WhaleState.PREGAME:
+            case WhaleState.POSTGAME:
+                rb.velocity *= 0.9f;
                 break;
             case WhaleState.STOPPED:
                 if(StoppedTimer > 0)
@@ -124,7 +130,7 @@ public class WhaleController : MonoBehaviour
     {
         DashTimer = 0;
         State = WhaleState.DASH;
-        
+        Source.PlayOneShot(DashSound);
     }
     private void StopWhaleTemporarily(float duration)
     {
