@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class OceanManager : MonoBehaviour
 {
+
+    public static OceanManager instance;
+
     public float width;
     public float yMax;
     public float yMin;
@@ -25,8 +28,17 @@ public class OceanManager : MonoBehaviour
     //private GameObject ground;
     private GameObject boatSpawner;
 
+    public static List<GameObject> allFishHomes;
+
     private bool fishSpawning = false;
     private bool homeSpawning = false;
+
+    void Awake()
+    {
+        instance = this;
+        allFishHomes = new List<GameObject>(); 
+
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -55,6 +67,7 @@ public class OceanManager : MonoBehaviour
             homeSpawning = true;
         }
 
+        Debug.Log("Fish Home Count: " + allFishHomes.Count);
     }
 
     IEnumerator SpawnFish()
@@ -101,9 +114,10 @@ public class OceanManager : MonoBehaviour
                     float randx = Random.Range(width / 2.0f * -1, width / 2.0f);
                     float randy = Random.Range(yMin,yMax);
 
-                    Instantiate(fishHomePrefab, new Vector3(randx, randy, 0), fishHomePrefab.transform.rotation);
+                    GameObject g = Instantiate(fishHomePrefab, new Vector3(randx, randy, 0), fishHomePrefab.transform.rotation);
 
                     fishHomeSpawned++;
+                    allFishHomes.Add(g);
                     Debug.Log("Fish home spawned");
                 }
                 counter = 0f;
@@ -112,6 +126,12 @@ public class OceanManager : MonoBehaviour
             yield return null;
         }
 
+    }
+
+    public static void RemoveFishHome(GameObject toRemove)
+    {
+        int HomeIndex = allFishHomes.IndexOf(toRemove);
+        allFishHomes.RemoveAt(HomeIndex);
     }
 
 
