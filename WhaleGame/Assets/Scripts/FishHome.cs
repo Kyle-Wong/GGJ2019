@@ -14,10 +14,11 @@ public class FishHome : MonoBehaviour
     MeshRenderer meshRender;
     private Material[] mats;
     private Material n_mat;
-
+    private AudioSource Source;
     // Start is called before the first frame update
     void Start()
     {
+        Source = GetComponent<AudioSource>();
         meshRender = this.GetComponent<MeshRenderer>();
 
         mats = meshRender.materials;
@@ -77,6 +78,7 @@ public class FishHome : MonoBehaviour
 
             if (other.GetComponent<FishType>().myType == myType)
             {
+                Source.PlayOneShot(other.GetComponent<FishSounds>().FishGetsHomeSound);
                 Debug.Log("Same type");
                 BuildFishTrail.RemoveFish(other.gameObject);
                 GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>().Score++;

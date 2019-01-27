@@ -165,6 +165,7 @@ public class WhaleController : MonoBehaviour
             if(BuildFishTrail.FishList.IndexOf(col.gameObject) == -1 && BuildFishTrail.FishList.Count < BuildFishTrail.MaxFishCount)
             {
                 BuildFishTrail.AddFish(col.gameObject);
+                col.GetComponent<FishSounds>().PlaySound(col.GetComponent<FishSounds>().FishCollectSound);
                 foreach (Transform t in col.transform) {
                     if(t.gameObject.name.Equals("FishCollectIndicator")){
                         Destroy(t.gameObject);
