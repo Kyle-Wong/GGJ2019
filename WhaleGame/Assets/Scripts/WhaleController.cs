@@ -149,7 +149,14 @@ public class WhaleController : MonoBehaviour
         if(col.CompareTag("Fish"))
         {
             if(BuildFishTrail.FishList.IndexOf(col.gameObject) == -1 && BuildFishTrail.FishList.Count < BuildFishTrail.MaxFishCount)
+            {
                 BuildFishTrail.AddFish(col.gameObject);
+                foreach (Transform t in col.transform) {
+                    if(t.gameObject.name.Equals("FishCollectIndicator")){
+                        Destroy(t.gameObject);
+                    }
+                }
+            }
         }
     }
     void OnTriggerStay(Collider col)
