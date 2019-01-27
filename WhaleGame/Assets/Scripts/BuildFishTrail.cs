@@ -9,7 +9,7 @@ public class BuildFishTrail : MonoBehaviour
     public Transform FishPrefab;
     public static List<Vector3> Trail;
     public static List<GameObject> FishList;
-    public int MaxFishCount = 8;
+    public static int MaxFishCount = 50;
     private int MaxLength;
     public int FishGap = 13;
     public int InitialGap = 10;
@@ -53,18 +53,25 @@ public class BuildFishTrail : MonoBehaviour
     */
     public static void AddFish(GameObject g)
     {
+<<<<<<< Updated upstream
+=======
+        //Debug.Log("FISH ADDED");
+>>>>>>> Stashed changes
         BuildFishTrail instance = BuildFishTrail.instance;
         int index = instance.InitialGap+instance.FishGap;
-        if(FishList.Count > 0)
+        g.GetComponent<FollowTrail>().enabled = true;
+
+        if (FishList.Count > 0)
             index = FishList[FishList.Count-1].GetComponent<FollowTrail>().desiredIndex+instance.FishGap;
         if(index >= instance.MaxLength){
             //currently, do not make fish if they go beyond the maximum trail length
             return;
         }
-        g.GetComponent<FollowTrail>().enabled = true;
+
         g.GetComponent<FollowTrail>().currentIndex = Mathf.Min(instance.MaxLength,index);
         g.GetComponent<FollowTrail>().desiredIndex = index;
-        FishList.Add(g.gameObject);
+        FishList.Add(g);
+        Debug.Log("Added: " + FishList.IndexOf(g));
     }
     public static void RemoveFish(int fishIndex)
     {
@@ -73,19 +80,23 @@ public class BuildFishTrail : MonoBehaviour
             FishList[i].GetComponent<FollowTrail>().desiredIndex = Mathf.Max(0,FishList[i].GetComponent<FollowTrail>().desiredIndex-instance.FishGap);
         }
 
-        GameObject temp = FishList[fishIndex];
+        ///GameObject temp = FishList[fishIndex];
         FishList.RemoveAt(fishIndex);
-        Destroy(temp);
+        //Destroy(Fish);
+        Debug.Log("Removed: "+ fishIndex);
     }
     public static void RemoveFish(GameObject toRemove)
     {
         int FishIndex;
 
         if (FishList.IndexOf(toRemove) == -1)
+        {
             Destroy(toRemove);
+        }
         else
         {
             FishIndex = FishList.IndexOf(toRemove);
+            Debug.Log(FishIndex);
             RemoveFish(FishIndex);
         }
     }
