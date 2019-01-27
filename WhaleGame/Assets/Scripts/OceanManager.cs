@@ -7,15 +7,23 @@ public class OceanManager : MonoBehaviour
     public float width;
     public float height;
 
-    public int fishMax = 5;
+    public int fishMax;
     private int fishSpawned = 0;
+
+    public int fishHomeMax;
+    private int fishHomeSpawned = 0;
+
     public float spawnRate;
+    public float homeSpawnRate;
+
     public GameObject fishPrefab;
+    public GameObject fishHomePrefab;
 
     private GameObject ground;
     private GameObject boatSpawner;
 
-    private float timer = 0f;
+    private bool fishSpawning = false;
+    private bool homeSpawning = false;
 
     // Start is called before the first frame update
     void Start()
@@ -32,23 +40,76 @@ public class OceanManager : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-        timer += Time.deltaTime;
-
-        if (timer >= spawnRate && fishSpawned < fishMax)
+    { 
+        if (!fishSpawning)
         {
-            SpawnFish();
-            timer = 0f;
+            StartCoroutine("SpawnFish");
+            fishSpawning = true;
+        }
+
+        if (!homeSpawning)
+        {
+            StartCoroutine("SpawnFishHome");
+            homeSpawning = true;
         }
 
     }
 
-    void SpawnFish()
+    IEnumerator SpawnFish()
     {
-        float randx = Random.Range(width / 2.0f * -1, width / 2.0f);
-        float randy = Random.Range(height / 2.0f * -1, height / 2.0f);
 
-        Instantiate(fishPrefab, new Vector3(randx, randy, 0), Quaternion.identity);
-        fishSpawned++;
+        float counter = 0;
+        while (true)
+        {
+            counter += Time.deltaTime;
+            if (counter >= homeSpawnRate)
+            {
+
+                if (fishHomeSpawned < fishHomeMax)
+                {
+                    float randx = Random.Range(width / 2.0f * -1, width / 2.0f);
+                    float randy = Random.Range(height / 2.0f * -1, height / 2.0f);
+
+                    Instantiate(fishPrefab, new Vector3(randx, randy, 0), Quaternion.identity);
+
+                    fishSpawned++;
+                    Debug.Log("Fish spawned");
+                }
+                counter = 0f;
+            }
+
+            yield return null;
+        }
+
     }
+
+    IEnumerator SpawnFishHome ()
+    {
+
+        float counter = 0;
+        while (true)
+        {
+            counter += Time.deltaTime;
+            if (counter >= homeSpawnRate)
+            {
+
+                if (fishHomeSpawned < fishHomeMax)
+                {
+                    float randx = Random.Range(width / 2.0f * -1, width / 2.0f);
+                    float randy = Random.Range(height / 2.0f * -1, height / 2.0f);
+
+                    Instantiate(fishHomePrefab, new Vector3(randx, randy, 0), Quaternion.identity);
+
+                    fishHomeSpawned++;
+                    Debug.Log("Fish home spawned");
+                }
+                counter = 0f;
+            }
+
+            yield return null;
+        }
+
+    }
+
+
 }

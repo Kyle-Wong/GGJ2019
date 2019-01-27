@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Fish
-  m_Shader: {fileID: 4800000, guid: 473697ba0fed8b4449c261bd118a6a5e, type: 3}
+  m_Name: Whale
+  m_Shader: {fileID: 4800000, guid: 49154317b8f778e48b74da2500eeb410, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -19,16 +19,12 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - Texture2D_F742DF9E:
-        m_Texture: {fileID: 2800000, guid: 88aa3ec17471137429ba9202601a1812, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _Texture2DAsset_7CAE873F_Out:
+    - Texture2D_61DF0580:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Vector1_7057467: 0.05
-    - Vector1_77EC5D48: 8
-    - Vector1_B4AECBF0: 0.5
+    - Vector1_4FDF5C3A: 0.75
+    - Vector1_A239C5E6: 10
+    - Vector1_ECD6B1C0: 5.5
     m_Colors: []

@@ -114,6 +114,21 @@ public class WhaleController : MonoBehaviour
         Vector2 MoveVector = new Vector2(0.5f,0.5f)-MouseWorldPoint;
         return Mathf.Rad2Deg*Mathf.Atan2(MoveVector.y,MoveVector.x);
     }
+    void OnCollisionEnter(Collision collision)
+    {
+        if(collision.collider.CompareTag("Trash"))
+        {
+            Destroy(collision.gameObject);
+        }
+        
+    }
+    void OnTriggerEnter(Collider collider)
+    {
+        if(collider.CompareTag("Fish"))
+        {
+            GetComponent<BuildFishTrail>().AddFish(collider.gameObject);
+        }
+    }
     void OnDrawGizmos()
     {
         Gizmos.color = Color.blue;

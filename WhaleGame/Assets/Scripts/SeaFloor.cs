@@ -34,7 +34,7 @@ public class SeaFloor : MonoBehaviour
 
     void ChangeFloorWidth()
     {
-        transform.localScale += new Vector3(width, 0, 0);
+        transform.localScale += new Vector3(width, 0, width);
     }
 
 }

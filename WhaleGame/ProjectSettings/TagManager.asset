@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - Anchor
+  - Trash
+  - Seafloor
+  - BoatSpawner
+  - Fish
   layers:
   - Default
   - TransparentFX

@@ -10,7 +10,8 @@ public class BuildFishTrail : MonoBehaviour
     public static List<GameObject> FishList;
     public int MaxFishCount = 8;
     private int MaxLength;
-    public static int FishGap = 40;
+    public int FishGap = 13;
+    public int InitialGap = 10;
 
     void Awake()
     {
@@ -34,7 +35,7 @@ public class BuildFishTrail : MonoBehaviour
     }
     public void AddFish()
     {
-        int index = FishGap;
+        int index = FishGap+InitialGap;
         if(FishList.Count > 0)
             index = FishList[FishList.Count-1].GetComponent<FollowTrail>().desiredIndex+FishGap;
         if(index >= MaxLength){
@@ -45,6 +46,20 @@ public class BuildFishTrail : MonoBehaviour
         fish.GetComponent<FollowTrail>().currentIndex = Mathf.Min(MaxLength,index);
         fish.GetComponent<FollowTrail>().desiredIndex = index;
         FishList.Add(fish.gameObject);
+    }
+    public void AddFish(GameObject g)
+    {
+        int index = InitialGap+FishGap;
+        if(FishList.Count > 0)
+            index = FishList[FishList.Count-1].GetComponent<FollowTrail>().desiredIndex+FishGap;
+        if(index >= MaxLength){
+            //currently, do not make fish if they go beyond the maximum trail length
+            return;
+        }
+        g.GetComponent<FollowTrail>().enabled = true;
+        g.GetComponent<FollowTrail>().currentIndex = Mathf.Min(MaxLength,index);
+        g.GetComponent<FollowTrail>().desiredIndex = index;
+        FishList.Add(g.gameObject);
     }
     public void RemoveFish(int fishIndex)
     {
