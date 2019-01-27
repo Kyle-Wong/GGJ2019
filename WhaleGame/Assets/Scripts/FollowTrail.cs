@@ -9,18 +9,33 @@ public class FollowTrail : MonoBehaviour
     [HideInInspector]
     public float currentIndex;
     public float acceleration;
+    private Vector3 Velocity;
+    private Vector3 PosLastFrame;
+    private bool SmoothMovement = true;
 
     void Start()
     {
     }
 
     // Update is called once per frame
+    //
+
     void Update()
     {
-        
+        Velocity = PosLastFrame-transform.position;
         if(BuildFishTrail.Trail.Count > (int)currentIndex)
         {
-            transform.position = BuildFishTrail.Trail[(int)currentIndex];
+            Vector2 target = BuildFishTrail.Trail[(int)currentIndex];
+            if(SmoothMovement){
+                transform.position = Vector3.SmoothDamp(transform.position,BuildFishTrail.Trail[(int)currentIndex],ref Velocity,.1f);
+                if(Vector2.Distance(transform.position,target) < 5)
+                {
+                    SmoothMovement = false;
+                }
+            } else {
+                transform.position = Vector3.Lerp(transform.position,BuildFishTrail.Trail[(int)currentIndex],0.08f);
+            }
+            
             if((int)currentIndex > desiredIndex)
             {
                 currentIndex -= acceleration*Time.deltaTime;
@@ -29,6 +44,6 @@ public class FollowTrail : MonoBehaviour
                 currentIndex += acceleration*Time.deltaTime;
             }
         }
-        
+        PosLastFrame = transform.position;
     }
 }

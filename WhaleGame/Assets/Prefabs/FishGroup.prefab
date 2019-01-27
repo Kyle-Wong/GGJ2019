@@ -4766,9 +4766,10 @@ GameObject:
   m_Component:
   - component: {fileID: 3952029014117384656}
   - component: {fileID: 257488987875039602}
+  - component: {fileID: 6839019628985354282}
   m_Layer: 0
   m_Name: FishGroup
-  m_TagString: Untagged
+  m_TagString: Fish
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4795,7 +4796,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3952029014117384657}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0745b8241e390e048aafd60b6b7de806, type: 3}
   m_Name: 
@@ -4803,3 +4804,16 @@ MonoBehaviour:
   desiredIndex: 0
   currentIndex: 0
   acceleration: 10
+--- !u!135 &6839019628985354282
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3952029014117384657}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.37
+  m_Center: {x: 0, y: 0, z: 0}
