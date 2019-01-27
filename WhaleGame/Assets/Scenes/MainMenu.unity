@@ -1290,7 +1290,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayScene: GameScene
-  CreditsScene: Credits
+  CreditsScene: CreditsScene
 --- !u!4 &878096178
 Transform:
   m_ObjectHideFlags: 0
