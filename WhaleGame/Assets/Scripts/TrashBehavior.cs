@@ -52,7 +52,7 @@ public class TrashBehavior : MonoBehaviour
     {
         if(other.CompareTag("Fish"))
         {
-            GameObject.FindGameObjectWithTag("PersistentSoundObject").GetComponent<AudioSource>().PlayOneShot(other.GetComponent<FishSounds>().FishDeathSound);
+            GameObject.FindGameObjectWithTag("UniqueSoundObject").GetComponent<AudioSource>().PlayOneShot(other.GetComponent<FishSounds>().FishDeathSound);
             BuildFishTrail.RemoveFish(other.gameObject);
         }
         if(other.CompareTag("Ocean") && LifeTime > 0.5f)
