@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 38010b852bd23844094716ded725b557
+guid: f71dd1b63a0f9844c80d5dd9736b1d03
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
@@ -7,17 +7,36 @@ ModelImporter:
     100002: Cube
     100004: //RootNode
     100006: Lamp
+    100008: node_id4
     400000: Camera
     400002: Cube
     400004: //RootNode
     400006: Lamp
+    400008: node_id4
     2000000: Camera
     2100000: Material
+    2100002: Material_52
     2300000: Cube
+    2300002: node_id4
+    2300004: //RootNode
     3300000: Cube
+    3300002: node_id4
+    3300004: //RootNode
     4300000: Cube
+    4300002: node_id4
+    4300004: hairtail
     10800000: Lamp
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: 261
+    second: {fileID: 2800000, guid: 9e14e365204c2e74e9ac5de2fca4daba, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: 265
+    second: {fileID: 2800000, guid: 0d60163672122d048b2d898f81db074c, type: 3}
   materials:
     importMaterials: 1
     materialName: 0
