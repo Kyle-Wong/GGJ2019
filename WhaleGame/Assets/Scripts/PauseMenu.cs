@@ -44,6 +44,7 @@ public class PauseMenu : MonoBehaviour
     {
         if(!MainMenuController.AllowUIInput)
             return;
+        Time.timeScale =1;
         SceneManager.LoadScene("MainMenu");
     }
 }
