@@ -107,7 +107,7 @@ Transform:
   m_GameObject: {fileID: 4296313149347006490}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -2.7}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children:
   - {fileID: 444986101}
   m_Father: {fileID: 0}
@@ -246,7 +246,7 @@ MonoBehaviour:
   FishPrefab: {fileID: 3952029014117384656, guid: 49cab38a0443f7d4a8b340b012f5e265,
     type: 3}
   FishGap: 12
-  InitialGap: -4
+  InitialGap: 0
 --- !u!114 &4296313149347006483
 MonoBehaviour:
   m_ObjectHideFlags: 0

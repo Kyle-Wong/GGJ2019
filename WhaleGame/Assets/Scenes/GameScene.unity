@@ -1122,21 +1122,6 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 4296313149347006484, guid: 7148902718fc4ee44bceef6796277f1f,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4296313149347006484, guid: 7148902718fc4ee44bceef6796277f1f,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4296313149347006484, guid: 7148902718fc4ee44bceef6796277f1f,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4296313149347006488, guid: 7148902718fc4ee44bceef6796277f1f,
         type: 3}
       propertyPath: m_Parameters.colorGradient.key1.a
