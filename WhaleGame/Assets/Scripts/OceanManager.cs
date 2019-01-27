@@ -74,7 +74,7 @@ public class OceanManager : MonoBehaviour
     {
 
         float counter = 0;
-        while (true)
+        while (!GameController.GameOver)
         {
             counter += Time.deltaTime;
             if (counter >= homeSpawnRate)
@@ -103,7 +103,7 @@ public class OceanManager : MonoBehaviour
     {
 
         float counter = 0;
-        while (true)
+        while (!GameController.GameOver)
         {
             counter += Time.deltaTime;
             if (counter >= homeSpawnRate)

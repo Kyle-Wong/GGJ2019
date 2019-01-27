@@ -54,6 +54,7 @@ public class MenuWhale : WhaleController
             InWater = true;
             rb.useGravity = false;
             if(State == WhaleState.AIRBORNE){
+                StartCoroutine(SpawnSplashPrefab(.15f));
                 State = WhaleState.MOVE;
             }
         }

@@ -23,12 +23,16 @@ public class WhaleController : MonoBehaviour
     protected Rigidbody rb;
     public bool InWater;
     public enum WhaleState{
-        MOVE,DASH,DEAD,AIRBORNE,PREGAME,STOPPED
+        MOVE,DASH,DEAD,AIRBORNE,POSTGAME,STOPPED
     }
     [HideInInspector]
     public WhaleState State;
+    public Transform SplashPrefab;
+    public AudioClip DashSound;
+    private AudioSource Source;
     void Awake()
     {
+        Source = GetComponent<AudioSource>();
         MainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         rb = GetComponent<Rigidbody>();
         State = WhaleState.MOVE;
@@ -41,6 +45,8 @@ public class WhaleController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        if(GameController.GameOver)
+            State = WhaleState.POSTGAME;
         switch(State)
         {
             case WhaleState.MOVE:
@@ -64,7 +70,8 @@ public class WhaleController : MonoBehaviour
                 RotateWhaleDirection();
                 rb.AddForce(Vector3.down*4,ForceMode.Acceleration);
                 break;
-            case WhaleState.PREGAME:
+            case WhaleState.POSTGAME:
+                rb.velocity *= 0.9f;
                 break;
             case WhaleState.STOPPED:
                 if(StoppedTimer > 0)
@@ -123,7 +130,7 @@ public class WhaleController : MonoBehaviour
     {
         DashTimer = 0;
         State = WhaleState.DASH;
-        
+        Source.PlayOneShot(DashSound);
     }
     private void StopWhaleTemporarily(float duration)
     {
@@ -135,6 +142,13 @@ public class WhaleController : MonoBehaviour
         Vector2 MouseWorldPoint = MainCam.ScreenToViewportPoint(Input.mousePosition);
         Vector2 MoveVector = new Vector2(0.5f,0.5f)-MouseWorldPoint;
         return Mathf.Rad2Deg*Mathf.Atan2(MoveVector.y,MoveVector.x);
+    }
+    protected IEnumerator SpawnSplashPrefab(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        Transform t = Instantiate(SplashPrefab,transform.position,Quaternion.identity);
+        Destroy(t.gameObject,2);
+        
     }
     void OnCollisionEnter(Collision collision)
     {
@@ -166,6 +180,7 @@ public class WhaleController : MonoBehaviour
             InWater = true;
             rb.useGravity = false;
             if(State == WhaleState.AIRBORNE){
+                StartCoroutine(SpawnSplashPrefab(.05f));
                 if(transform.rotation.eulerAngles.z > 268 && transform.rotation.eulerAngles.z < 330){
                     StopWhaleTemporarily(LandInWaterParalysisDuration);
                 }
