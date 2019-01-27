@@ -27,6 +27,7 @@ public class WhaleController : MonoBehaviour
     }
     [HideInInspector]
     public WhaleState State;
+    public Transform SplashPrefab;
     void Awake()
     {
         MainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
@@ -136,6 +137,13 @@ public class WhaleController : MonoBehaviour
         Vector2 MoveVector = new Vector2(0.5f,0.5f)-MouseWorldPoint;
         return Mathf.Rad2Deg*Mathf.Atan2(MoveVector.y,MoveVector.x);
     }
+    protected IEnumerator SpawnSplashPrefab(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        Transform t = Instantiate(SplashPrefab,transform.position,Quaternion.identity);
+        Destroy(t.gameObject,2);
+        
+    }
     void OnCollisionEnter(Collision collision)
     {
         if(collision.collider.CompareTag("Trash"))
@@ -166,6 +174,7 @@ public class WhaleController : MonoBehaviour
             InWater = true;
             rb.useGravity = false;
             if(State == WhaleState.AIRBORNE){
+                StartCoroutine(SpawnSplashPrefab(.05f));
                 if(transform.rotation.eulerAngles.z > 268 && transform.rotation.eulerAngles.z < 330){
                     StopWhaleTemporarily(LandInWaterParalysisDuration);
                 }
