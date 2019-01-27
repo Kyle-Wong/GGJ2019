@@ -18,4 +18,15 @@ public class FishHome : MonoBehaviour
     {
         
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Debug.Log(other.tag + " Collided");
+        if (other.CompareTag("Fish"))
+        {
+            BuildFishTrail.RemoveFish(other.gameObject);
+            Destroy(this.gameObject, 3f);
+        }
+
+    }
 }

@@ -474,15 +474,20 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8090074110231100607, guid: 84bc0da3e5e934b1f83054f6483d84c9,
         type: 3}
+    - target: {fileID: 6950412948032042944, guid: 8b63605ea9f314384b9c25b71d9314aa,
+        type: 3}
+      propertyPath: spawnRate
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6950412948431640266, guid: 8b63605ea9f314384b9c25b71d9314aa,
         type: 3}
       propertyPath: AnchorsPerSide
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6950412948431640266, guid: 8b63605ea9f314384b9c25b71d9314aa,
         type: 3}
       propertyPath: spawnRate
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6950412948486662615, guid: 8b63605ea9f314384b9c25b71d9314aa,
         type: 3}
