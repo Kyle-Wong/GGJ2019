@@ -1,5 +1,18 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &4604277876049094167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8172403445490861767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77998fdc9037f4022b2619599650dacd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myType: 3
 --- !u!1001 &5166289379117254422
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11,6 +24,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: hairtailGroup
+      objectReference: {fileID: 0}
+    - target: {fileID: 3952029014117384657, guid: 49cab38a0443f7d4a8b340b012f5e265,
+        type: 3}
+      propertyPath: m_TagString
+      value: Fish
       objectReference: {fileID: 0}
     - target: {fileID: 3952029014117384656, guid: 49cab38a0443f7d4a8b340b012f5e265,
         type: 3}
@@ -149,3 +167,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 49cab38a0443f7d4a8b340b012f5e265, type: 3}
+--- !u!1 &8172403445490861767 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3952029014117384657, guid: 49cab38a0443f7d4a8b340b012f5e265,
+    type: 3}
+  m_PrefabInstance: {fileID: 5166289379117254422}
+  m_PrefabAsset: {fileID: 0}
