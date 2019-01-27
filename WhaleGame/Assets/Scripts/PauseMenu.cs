@@ -19,13 +19,13 @@ public class PauseMenu : MonoBehaviour
     {
         if(Paused)
         {
-            if(MainMenuController.AllowUIInput && Input.GetKeyDown(PauseKey)){
+            if(MainMenuController.AllowUIInput && (Input.GetKeyDown(PauseKey) || Input.GetKeyDown(KeyCode.Escape))){
                 Paused = false;
                 MyCanvas.enabled = false;
                 Time.timeScale = 1;
             }
         } else {
-            if(MainMenuController.AllowUIInput && Input.GetKeyDown(PauseKey)){
+            if(MainMenuController.AllowUIInput && (Input.GetKeyDown(PauseKey)|| Input.GetKeyDown(KeyCode.Escape))){
                 Paused = true;
                 MyCanvas.enabled = true;
                 Time.timeScale = 0;
