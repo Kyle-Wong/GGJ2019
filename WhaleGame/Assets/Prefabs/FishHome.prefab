@@ -63,6 +63,7 @@ MeshRenderer:
   - {fileID: 2100000, guid: b4498c13e14274d38b8e7e10f6382bf1, type: 2}
   - {fileID: 2100000, guid: b76795f0e905146a7880d2b993274016, type: 2}
   - {fileID: 2100000, guid: 3dfd440d9927840389ff05c82c5d2009, type: 2}
+  - {fileID: 2100000, guid: 92e43b02b58b543d9b3f58f708a30f1c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -90,7 +91,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8090074110231100607}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.02107067

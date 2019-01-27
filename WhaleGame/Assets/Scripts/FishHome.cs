@@ -13,6 +13,7 @@ public class FishHome : MonoBehaviour
 
     MeshRenderer meshRender;
     private Material[] mats;
+    private Material n_mat;
 
     // Start is called before the first frame update
     void Start()
@@ -22,59 +23,48 @@ public class FishHome : MonoBehaviour
         mats = meshRender.materials;
 
         Destroy(this.gameObject, lifetime);
-
+        
         myType = (FishTypes)Random.Range(0, 4);
 
-        if(myType == FishTypes.Dory)
+        switch(myType)
         {
-            meshRender.material = mats[0];
-            Debug.Log("Dory home");
-            foreach (Material m in mats)
-            {
-                Debug.Log(m.name);
-            }
+            case FishTypes.Dory:
+                n_mat = mats[0];
+                break;
+
+            case FishTypes.Sun:
+                n_mat = mats[1];
+                break;
+
+            case FishTypes.Nemo:
+                n_mat = mats[2];
+                break;
+
+            case FishTypes.Hairtail:
+                n_mat = mats[3];
+                break;
         }
-
-        if(myType == FishTypes.Nemo)
-        {
-
-            meshRender.material = mats[1];
-            Debug.Log("Nemo home");
-            foreach (Material m in mats)
-            {
-                Debug.Log(m.name);
-            }
-        }
-
-        if(myType == FishTypes.Sun)
-        {
-            meshRender.material = mats[2];
-            Debug.Log("Sun home");
-            foreach (Material m in mats)
-            {
-                Debug.Log(m.name);
-            }
-        }
-
-        if (myType == FishTypes.Hairtail)
-        {
-            meshRender.material = mats[3];
-            Debug.Log("Sun home");
-            foreach (Material m in mats)
-            {
-                Debug.Log(m.name);
-            }
-        }
-
-
-
+        meshRender.material = n_mat;
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
+    }
+
+    private void ChangeMaterials(string colorName)
+    {
+        for(int i = 0; i < mats.Length; i++)
+        {
+            if (mats[i].name == colorName)
+            {
+                Material temp = mats[0];
+                meshRender.material = mats[i];
+                mats[i] = temp;
+            }
+        }
     }
 
     private void OnTriggerEnter(Collider other)
