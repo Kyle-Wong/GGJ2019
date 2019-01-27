@@ -5,6 +5,7 @@ using UnityEngine;
 public class BuildFishTrail : MonoBehaviour
 {
     // Start is called before the first frame update
+    public static BuildFishTrail instance;
     public Transform FishPrefab;
     public static List<Vector3> Trail;
     public static List<GameObject> FishList;
@@ -15,6 +16,7 @@ public class BuildFishTrail : MonoBehaviour
 
     void Awake()
     {
+        instance = this;
         MaxLength = MaxFishCount*FishGap;
         Trail = new List<Vector3>();
         FishList = new List<GameObject>();
@@ -33,6 +35,7 @@ public class BuildFishTrail : MonoBehaviour
             Trail.RemoveAt(Trail.Count-1);
         }
     }
+    /*
     public void AddFish()
     {
         int index = FishGap+InitialGap;
@@ -47,25 +50,27 @@ public class BuildFishTrail : MonoBehaviour
         fish.GetComponent<FollowTrail>().desiredIndex = index;
         FishList.Add(fish.gameObject);
     }
-    public void AddFish(GameObject g)
+    */
+    public static void AddFish(GameObject g)
     {
-        int index = InitialGap+FishGap;
+        BuildFishTrail instance = BuildFishTrail.instance;
+        int index = instance.InitialGap+instance.FishGap;
         if(FishList.Count > 0)
-            index = FishList[FishList.Count-1].GetComponent<FollowTrail>().desiredIndex+FishGap;
-        if(index >= MaxLength){
+            index = FishList[FishList.Count-1].GetComponent<FollowTrail>().desiredIndex+instance.FishGap;
+        if(index >= instance.MaxLength){
             //currently, do not make fish if they go beyond the maximum trail length
             return;
         }
         g.GetComponent<FollowTrail>().enabled = true;
-        g.GetComponent<FollowTrail>().currentIndex = Mathf.Min(MaxLength,index);
+        g.GetComponent<FollowTrail>().currentIndex = Mathf.Min(instance.MaxLength,index);
         g.GetComponent<FollowTrail>().desiredIndex = index;
         FishList.Add(g.gameObject);
     }
-    public void RemoveFish(int fishIndex)
+    public static void RemoveFish(int fishIndex)
     {
         for(int i = fishIndex; i < FishList.Count; i++)
         {
-            FishList[i].GetComponent<FollowTrail>().desiredIndex = Mathf.Max(0,FishList[i].GetComponent<FollowTrail>().desiredIndex-FishGap);
+            FishList[i].GetComponent<FollowTrail>().desiredIndex = Mathf.Max(0,FishList[i].GetComponent<FollowTrail>().desiredIndex-instance.FishGap);
         }
         Destroy(FishList[fishIndex]);
         FishList.RemoveAt(fishIndex);

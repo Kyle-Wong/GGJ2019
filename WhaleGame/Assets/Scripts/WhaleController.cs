@@ -126,7 +126,7 @@ public class WhaleController : MonoBehaviour
     {
         if(collider.CompareTag("Fish"))
         {
-            GetComponent<BuildFishTrail>().AddFish(collider.gameObject);
+            BuildFishTrail.AddFish(collider.gameObject);
         }
     }
     void OnDrawGizmos()
