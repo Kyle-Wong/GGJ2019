@@ -76,9 +76,9 @@ public class BuildFishTrail : MonoBehaviour
             FishList[i].GetComponent<FollowTrail>().desiredIndex = Mathf.Max(0,FishList[i].GetComponent<FollowTrail>().desiredIndex-instance.FishGap);
         }
 
-        ///GameObject temp = FishList[fishIndex];
+        GameObject temp = FishList[fishIndex];
         FishList.RemoveAt(fishIndex);
-        //Destroy(Fish);
+        Destroy(temp);
         Debug.Log("Removed: "+ fishIndex);
     }
     public static void RemoveFish(GameObject toRemove)
