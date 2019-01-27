@@ -261,34 +261,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RotationSpeed: 180
   MoveSpeed: 15
-  DashSpeed: 50
-  DashDuration: 0.3
+  DashSpeed: 25
+  DashDuration: 0.45
   DashVelocityCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0.0041656494
       value: 1
-      inSlope: -1.4514503
-      outSlope: -1.4514503
+      inSlope: -0.03270836
+      outSlope: -0.03270836
       tangentMode: 0
       weightedMode: 0
       inWeight: 0.33333334
-      outWeight: 0.17916667
+      outWeight: 0.3583333
     - serializedVersion: 3
-      time: 0.98742676
-      value: 0.00015640259
-      inSlope: 0.029352874
-      outSlope: 0.029352874
+      time: 1.008535
+      value: 0.2466152
+      inSlope: -2.9999747
+      outSlope: -2.9999747
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.21666664
+      inWeight: 0.061234068
       outWeight: 0.33333334
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
   FlipSpeed: 400
-  LandInWaterParalysisDuration: 0.3
+  LandInWaterParalysisDuration: 0.5
   IsDead: 0
   InWater: 0
   State: 0

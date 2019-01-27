@@ -5,7 +5,8 @@ using UnityEngine;
 public class OceanManager : MonoBehaviour
 {
     public float width;
-    public float height;
+    public float yMax;
+    public float yMin;
 
     //public int fishMax;
     private int fishSpawned = 0;
@@ -21,7 +22,7 @@ public class OceanManager : MonoBehaviour
 
     public GameObject[] fishes;
 
-    private GameObject ground;
+    //private GameObject ground;
     private GameObject boatSpawner;
 
     private bool fishSpawning = false;
@@ -30,11 +31,10 @@ public class OceanManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        ground = GameObject.FindGameObjectWithTag("Seafloor");
-        ground.transform.position = new Vector3(0, -height/2 - 1, 0);
+     
 
         boatSpawner = GameObject.FindGameObjectWithTag("BoatSpawner");
-        boatSpawner.transform.position = new Vector3(0, height / 2 - 1, 0);
+        boatSpawner.transform.position = new Vector3(0, yMax, 0);
 
         Debug.Log(width);
         boatSpawner.GetComponent<BoatSpawner>().SetWidth(width);
@@ -70,8 +70,7 @@ public class OceanManager : MonoBehaviour
                 //if (fishHomeSpawned < fishHomeMax)
                 //{
                     float randx = Random.Range(width / 2.0f * -1, width / 2.0f);
-                    float randy = Random.Range(height / 3.0f * -1, height / 4.0f);
-
+                    float randy = Random.Range(yMin,yMax);
                     int rand = Random.Range(0, fishes.Length);
 
                     Instantiate(fishes[rand], new Vector3(randx, randy, 0), Quaternion.identity);
@@ -100,7 +99,7 @@ public class OceanManager : MonoBehaviour
                 if (fishHomeSpawned < fishHomeMax)
                 {
                     float randx = Random.Range(width / 2.0f * -1, width / 2.0f);
-                    float randy = Random.Range(height / 3.0f * -1, height / 4.0f);
+                    float randy = Random.Range(yMin,yMax);
 
                     Instantiate(fishHomePrefab, new Vector3(randx, randy, 0), Quaternion.identity);
 

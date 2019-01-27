@@ -5,24 +5,29 @@ using UnityEngine;
 public class ConstrainCamera : MonoBehaviour
 {
     // Start is called before the first frame update
+    public float LeftBounds;
+    public float RightBounds;
+    public float BottomBounds;
+
     private Camera Cam;
-    public Vector2 TopLeft;
-    public Vector2 BottomRight;
+    public GameObject TopLeft;
+    public GameObject BottomRight;
     private float CameraWidth;
     private float CameraHeight;
     void Start()
     {
         Cam = GetComponent<Camera>();
-        CameraWidth = Cam.ViewportToWorldPoint(new Vector2(1,0)).x - Cam.ViewportToWorldPoint(new Vector2(0,0)).x;
-        CameraHeight = Cam.ViewportToWorldPoint(new Vector2(1,0)).y - Cam.ViewportToWorldPoint(new Vector2(0,0)).y;
+        CameraWidth = BottomRight.transform.position.x - TopLeft.transform.position.x;
+        CameraHeight = TopLeft.transform.position.y - BottomRight.transform.position.y;
     }
 
     // Update is called once per frame
     void LateUpdate()
     {
+
         Vector3 CameraPos = transform.position;
-        CameraPos.x = Mathf.Clamp(CameraPos.x,TopLeft.x+CameraWidth/2,BottomRight.x-CameraWidth/2);
-        CameraPos.y = Mathf.Clamp(CameraPos.y,BottomRight.y+CameraHeight/2,TopLeft.y-CameraHeight/2);
+        CameraPos.x = Mathf.Clamp(CameraPos.x,LeftBounds+CameraWidth/2,RightBounds-CameraWidth/2);
+        CameraPos.y = Mathf.Max(CameraPos.y,BottomBounds+CameraHeight/2);
         transform.position = CameraPos;
     }
 }
