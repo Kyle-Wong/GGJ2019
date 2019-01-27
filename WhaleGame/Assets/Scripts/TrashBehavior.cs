@@ -30,7 +30,7 @@ public class TrashBehavior : MonoBehaviour
     {
         if(other.CompareTag("Fish"))
         {
-            Destroy(other.gameObject);
+            BuildFishTrail.RemoveFish(other.gameObject);
         }
     }
 }
