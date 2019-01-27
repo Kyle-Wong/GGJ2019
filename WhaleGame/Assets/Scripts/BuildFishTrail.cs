@@ -9,7 +9,7 @@ public class BuildFishTrail : MonoBehaviour
     public Transform FishPrefab;
     public static List<Vector3> Trail;
     public static List<GameObject> FishList;
-    public static int MaxFishCount = 8;
+    public int MaxFishCount = 8;
     private int MaxLength;
     public int FishGap = 13;
     public int InitialGap = 10;
@@ -29,7 +29,7 @@ public class BuildFishTrail : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Debug.Log(FishList.Count);
+      
         Trail.Insert(0,transform.position);
         if(Trail.Count >= MaxLength){
             Trail.RemoveAt(Trail.Count-1);
@@ -53,7 +53,6 @@ public class BuildFishTrail : MonoBehaviour
     */
     public static void AddFish(GameObject g)
     {
-        Debug.Log("FISH ADDED");
         BuildFishTrail instance = BuildFishTrail.instance;
         int index = instance.InitialGap+instance.FishGap;
         if(FishList.Count > 0)
