@@ -71,6 +71,12 @@ public class BoatBehaviour : MonoBehaviour
 
     public void MoveToAnchor()
     {
+        if (anchorPoint.x < transform.position.x && goingRight == true)
+        {
+            transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y, -transform.localScale.z);
+            goingRight = false;
+        }
+
         transform.position = Vector3.MoveTowards(transform.position, anchorPoint, boatSpeed * Time.deltaTime);
     }
 
@@ -101,17 +107,23 @@ public class BoatBehaviour : MonoBehaviour
             if (transform.position.x >= RightBound.x)
             {
                 goingRight = false;
+                transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y, -transform.localScale.z);
             }
 
             if (transform.position.x <= LeftBound.x)
             {
                 goingRight = true;
+                transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y, Mathf.Abs(transform.localScale.z));
             }
 
-            if(goingRight)
+            if (goingRight)
+            {
                 newPos = new Vector3(RightBound.x, transform.position.y, transform.position.z);
+            }
             else
+            {
                 newPos = new Vector3(LeftBound.x, transform.position.y, transform.position.z);
+            }
 
             this.transform.position = Vector3.MoveTowards(transform.position, newPos, boatSpeed * Time.deltaTime);
 

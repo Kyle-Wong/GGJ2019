@@ -36,7 +36,7 @@ public class BoatSpawner : MonoBehaviour
                     //Debug.Log(a.GetComponent<Anchors>().GetOccupied() == false);
                     if (a.GetComponent<Anchors>().GetOccupied() == false)
                     {
-                        GameObject boat = Instantiate(boatPrefab, transform.position, Quaternion.identity);
+                        GameObject boat = Instantiate(boatPrefab, transform.position, boatPrefab.transform.rotation);
                         boat.transform.SetParent(this.transform, true);
 
                         boat.GetComponent<BoatBehaviour>().SetAnchor(a.transform.position);
