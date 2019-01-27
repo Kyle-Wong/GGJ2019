@@ -123,7 +123,9 @@ public class WhaleController : MonoBehaviour
     {
         if(col.CompareTag("Fish"))
         {
-            BuildFishTrail.AddFish(col.gameObject);
+            Debug.Log("In list at pos: " + BuildFishTrail.FishList.IndexOf(col.gameObject));
+            if(BuildFishTrail.FishList.IndexOf(col.gameObject) == -1 && BuildFishTrail.FishList.Count < BuildFishTrail.MaxFishCount)
+                BuildFishTrail.AddFish(col.gameObject);
         }
     }
     void OnDrawGizmos()

@@ -7,7 +7,7 @@ public class OceanManager : MonoBehaviour
     public float width;
     public float height;
 
-    public int fishMax;
+    //public int fishMax;
     private int fishSpawned = 0;
 
     public int fishHomeMax;
@@ -64,9 +64,9 @@ public class OceanManager : MonoBehaviour
             counter += Time.deltaTime;
             if (counter >= homeSpawnRate)
             {
-
-                if (fishHomeSpawned < fishHomeMax)
-                {
+                //fishHomeSpawned = GameObject.FindGameObjectsWithTag("Fish").Length;
+                //if (fishHomeSpawned < fishHomeMax)
+                //{
                     float randx = Random.Range(width / 2.0f * -1, width / 2.0f);
                     float randy = Random.Range(height / 2.0f * -1, height / 2.0f);
 
@@ -74,7 +74,7 @@ public class OceanManager : MonoBehaviour
 
                     fishSpawned++;
                     Debug.Log("Fish spawned");
-                }
+                //}
                 counter = 0f;
             }
 
@@ -92,7 +92,7 @@ public class OceanManager : MonoBehaviour
             counter += Time.deltaTime;
             if (counter >= homeSpawnRate)
             {
-
+                fishHomeSpawned = GameObject.FindGameObjectsWithTag("FishHome").Length;
                 if (fishHomeSpawned < fishHomeMax)
                 {
                     float randx = Random.Range(width / 2.0f * -1, width / 2.0f);
