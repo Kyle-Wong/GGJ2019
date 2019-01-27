@@ -72,12 +72,15 @@ public class BuildFishTrail : MonoBehaviour
         {
             FishList[i].GetComponent<FollowTrail>().desiredIndex = Mathf.Max(0,FishList[i].GetComponent<FollowTrail>().desiredIndex-instance.FishGap);
         }
-        Destroy(FishList[fishIndex]);
+
+        GameObject temp = FishList[fishIndex];
         FishList.RemoveAt(fishIndex);
+        Destroy(temp);
     }
     public static void RemoveFish(GameObject toRemove)
     {
         int FishIndex = FishList.IndexOf(toRemove);
+        Debug.Log(FishIndex);
         RemoveFish(FishIndex);
     }
     void OnDrawGizmos()
