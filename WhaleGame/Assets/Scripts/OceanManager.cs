@@ -67,7 +67,7 @@ public class OceanManager : MonoBehaviour
             homeSpawning = true;
         }
 
-        Debug.Log("Fish Home Count: " + allFishHomes.Count);
+        //Debug.Log("Fish Home Count: " + allFishHomes.Count);
     }
 
     IEnumerator SpawnFish()
