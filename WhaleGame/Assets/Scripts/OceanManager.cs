@@ -19,6 +19,8 @@ public class OceanManager : MonoBehaviour
     public GameObject fishPrefab;
     public GameObject fishHomePrefab;
 
+    public GameObject[] fishes;
+
     private GameObject ground;
     private GameObject boatSpawner;
 
@@ -70,7 +72,9 @@ public class OceanManager : MonoBehaviour
                     float randx = Random.Range(width / 2.0f * -1, width / 2.0f);
                     float randy = Random.Range(height / 3.0f * -1, height / 4.0f);
 
-                    Instantiate(fishPrefab, new Vector3(randx, randy, 0), Quaternion.identity);
+                    int rand = Random.Range(0, fishes.Length);
+
+                    Instantiate(fishes[rand], new Vector3(randx, randy, 0), Quaternion.identity);
 
                     fishSpawned++;
                     Debug.Log("Fish spawned");
