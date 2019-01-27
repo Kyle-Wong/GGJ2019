@@ -9,7 +9,7 @@ public class FishHome : MonoBehaviour
 
     public float lifetime = 30f;
 
-    [SerializeField] private FishTypes myType;
+    [SerializeField] public FishTypes myType;
 
     MeshRenderer meshRender;
     private Material[] mats;

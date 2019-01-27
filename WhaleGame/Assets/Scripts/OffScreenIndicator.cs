@@ -11,6 +11,9 @@ public class OffScreenIndicator : MonoBehaviour {
     [SerializeField]
     private Image[] indicator;
     private new Camera camera;
+    [SerializeField]
+    private FishColor[] fishColor;
+    private Dictionary<FishTypes, Color> fishColors = new Dictionary<FishTypes, Color>();
 
     // Use this for initialization
     void Awake() {
@@ -21,6 +24,10 @@ public class OffScreenIndicator : MonoBehaviour {
 
     private void Start() {
         camera = Camera.main;
+        foreach (FishColor f in fishColor) {
+            if (!fishColors.ContainsKey(f.type))
+                fishColors.Add(f.type, f.color);
+        }
     }
 
     // Update is called once per frame
@@ -31,22 +38,22 @@ public class OffScreenIndicator : MonoBehaviour {
             float width = height / ((float)camera.pixelHeight / camera.pixelWidth);
             canvasTransform.sizeDelta = new Vector2(width, height);
             for (int i = 0; i < OceanManager.allFishHomes.Count; ++i) {
-                if (OceanManager.allFishHomes[i] == null) // if target some how becomes null, ignore target
+                FishHome fishHome;
+                if ((fishHome = OceanManager.allFishHomes[i]?.GetComponent<FishHome>()) == null) // if target some how becomes null, ignore target
                     continue;
-                
+
                 float distance = Vector3.Distance(OceanManager.allFishHomes[i].transform.position, transform.position) / height * 2;
 
                 // Get target object's angle from the center of the screen by projecting the objects position to a plane on the canvas
                 float screenAngle = Vector3.SignedAngle(canvasTransform.transform.up, Vector3.ProjectOnPlane(OceanManager.allFishHomes[i].transform.position - canvasTransform.position, canvasTransform.forward), canvasTransform.forward);
                 Vector2 elipticalPoint = new Vector2(-width*0.95f / 2 * Mathf.Sin(screenAngle * Mathf.Deg2Rad), height*0.95f / 2 * Mathf.Cos(screenAngle * Mathf.Deg2Rad));
-
-                print(distance);
+                
                 float distanceScaled = Mathf.Max(0, -1 / (distance * 2 - 0.6f) + 1);
                 distanceScaled = distanceScaled > 1 ? 0 : distanceScaled;
 
                 indicator[i].transform.localRotation = Quaternion.Euler(0, 0, screenAngle);
                 indicator[i].rectTransform.sizeDelta = new Vector2(4 * distanceScaled, 4 * distanceScaled);
-                Color c = indicator[i].color;
+                Color c = fishColors[fishHome.myType];
                 c.a = distanceScaled;
                 indicator[i].color = c;
                 indicator[i].rectTransform.anchoredPosition = Vector2.Lerp(Vector2.zero, elipticalPoint, distanceScaled);
@@ -58,5 +65,11 @@ public class OffScreenIndicator : MonoBehaviour {
        for (int i = 0; i < indicator.Length; ++i) {
             indicator[i].gameObject.SetActive(i < count);
        }
+    }
+
+    [System.Serializable]
+    private struct FishColor {
+        public FishTypes type;
+        public Color color;
     }
 }
