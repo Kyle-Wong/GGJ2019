@@ -450,6 +450,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6950412948032042944, guid: 8b63605ea9f314384b9c25b71d9314aa,
         type: 3}
+      propertyPath: fishes.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6950412948032042944, guid: 8b63605ea9f314384b9c25b71d9314aa,
+        type: 3}
       propertyPath: width
       value: 100
       objectReference: {fileID: 0}
@@ -479,6 +484,24 @@ PrefabInstance:
       propertyPath: spawnRate
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 6950412948032042944, guid: 8b63605ea9f314384b9c25b71d9314aa,
+        type: 3}
+      propertyPath: fishes.Array.data[0]
+      value: 
+      objectReference: {fileID: 3789541385223643490, guid: 71356f7fbb7c9b543b37daf5540aff96,
+        type: 3}
+    - target: {fileID: 6950412948032042944, guid: 8b63605ea9f314384b9c25b71d9314aa,
+        type: 3}
+      propertyPath: fishes.Array.data[1]
+      value: 
+      objectReference: {fileID: 3789541385223643490, guid: 209ac09a0f7093c4b8f1378be41ce55f,
+        type: 3}
+    - target: {fileID: 6950412948032042944, guid: 8b63605ea9f314384b9c25b71d9314aa,
+        type: 3}
+      propertyPath: fishes.Array.data[2]
+      value: 
+      objectReference: {fileID: 3789541385223643490, guid: e8c4a4cd1bc5ca441a041c8bce93efdc,
+        type: 3}
     - target: {fileID: 6950412948431640266, guid: 8b63605ea9f314384b9c25b71d9314aa,
         type: 3}
       propertyPath: AnchorsPerSide
