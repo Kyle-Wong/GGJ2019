@@ -68,7 +68,7 @@ public class OceanManager : MonoBehaviour
                 //if (fishHomeSpawned < fishHomeMax)
                 //{
                     float randx = Random.Range(width / 2.0f * -1, width / 2.0f);
-                    float randy = Random.Range(height / 2.0f * -1, height / 2.0f);
+                    float randy = Random.Range(height / 3.0f * -1, height / 4.0f);
 
                     Instantiate(fishPrefab, new Vector3(randx, randy, 0), Quaternion.identity);
 
@@ -96,7 +96,7 @@ public class OceanManager : MonoBehaviour
                 if (fishHomeSpawned < fishHomeMax)
                 {
                     float randx = Random.Range(width / 2.0f * -1, width / 2.0f);
-                    float randy = Random.Range(height / 2.0f * -1, height / 2.0f);
+                    float randy = Random.Range(height / 3.0f * -1, height / 4.0f);
 
                     Instantiate(fishHomePrefab, new Vector3(randx, randy, 0), Quaternion.identity);
 
