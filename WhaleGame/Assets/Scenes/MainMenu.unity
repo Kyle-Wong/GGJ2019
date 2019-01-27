@@ -1295,7 +1295,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Whale Game
+  m_Text: whale-come home
 --- !u!222 &683227760
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -46,10 +46,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   width: 100
-  yMax: 0
+  yMax: 5
   yMin: -40
   fishHomeMax: 3
-  spawnRate: 10
+  spawnRate: 1
   homeSpawnRate: 6
   fishPrefab: {fileID: 3952029014117384657, guid: 49cab38a0443f7d4a8b340b012f5e265,
     type: 3}
@@ -59,6 +59,7 @@ MonoBehaviour:
   - {fileID: 3789541385223643490, guid: 71356f7fbb7c9b543b37daf5540aff96, type: 3}
   - {fileID: 3789541385223643490, guid: 209ac09a0f7093c4b8f1378be41ce55f, type: 3}
   - {fileID: 3789541385223643490, guid: e8c4a4cd1bc5ca441a041c8bce93efdc, type: 3}
+  - {fileID: 8172403445490861767, guid: 44cba4c04a00758419c2754c3e0a8960, type: 3}
 --- !u!1 &6950412948486662619
 GameObject:
   m_ObjectHideFlags: 0

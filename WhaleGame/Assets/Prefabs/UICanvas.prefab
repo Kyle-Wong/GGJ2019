@@ -58,7 +58,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -132,7 +132,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -211,7 +211,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -298,6 +298,7 @@ GameObject:
   - component: {fileID: 6679974738011863763}
   - component: {fileID: 4783353543813438525}
   - component: {fileID: 697748368811740841}
+  - component: {fileID: 3242329958350452412}
   m_Layer: 5
   m_Name: GameTimer
   m_TagString: Untagged
@@ -336,16 +337,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f64f1d94f84c404b8d2bff16ec416f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InnerBar: {fileID: 0}
-  Colors:
-  - {r: 0.4481132, g: 1, b: 0.4481132, a: 1}
-  - {r: 0.99118453, g: 1, b: 0.4575472, a: 1}
-  - {r: 1, g: 0, b: 0.11372566, a: 1}
-  text: {fileID: 0}
-  Phrases:
-  - 'Pollution: Minimal'
-  - 'Pollution: Worrying'
-  - 'Pollution: ALARMING'
 --- !u!222 &4783353543813438525
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -367,7 +358,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -388,6 +379,21 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 1:23
+--- !u!114 &3242329958350452412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6679974738011863765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -900027084, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectDistance: {x: 1, y: -1}
+  m_UseGraphicAlpha: 1
 --- !u!1 &6679974738462055056
 GameObject:
   m_ObjectHideFlags: 0
