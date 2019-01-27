@@ -112,7 +112,7 @@ public class OceanManager : MonoBehaviour
                 if (fishHomeSpawned < fishHomeMax)
                 {
                     float randx = Random.Range(width / 2.0f * -1, width / 2.0f);
-                    float randy = Random.Range(yMin,yMax);
+                    float randy = yMin+5;
 
                     GameObject g = Instantiate(fishHomePrefab, new Vector3(randx, randy, 0), fishHomePrefab.transform.rotation);
 
