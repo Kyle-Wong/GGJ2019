@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: 7ac7679a2ac2b3740bf914170236175f
+  - enabled: 1
+    path: Assets/Scenes/KyleTestScene.unity
+    guid: 2759aa1787ba6494faebc1de959d1152
   m_configObjects: {}

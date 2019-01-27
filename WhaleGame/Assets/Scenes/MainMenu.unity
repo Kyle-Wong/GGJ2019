@@ -950,10 +950,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StartColor: {r: 0, g: 0, b: 0, a: 0}
   EndColor: {r: 0, g: 0, b: 0, a: 1}
-  InitializeColor: 0
+  InitializeColor: 1
   Activated: 0
-  ChangeDuration: 0.25
-  EnableGraphicOnStart: 0
+  ChangeDuration: 0.3
+  EnableGraphicOnStart: 1
 --- !u!1 &783531636
 GameObject:
   m_ObjectHideFlags: 0
@@ -1571,7 +1571,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_TargetDisplay: 0
 --- !u!224 &1991146892
 RectTransform:
