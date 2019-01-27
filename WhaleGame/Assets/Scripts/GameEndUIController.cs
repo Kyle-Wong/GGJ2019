@@ -12,8 +12,11 @@ public class GameEndUIController : MonoBehaviour
     
     void Awake()
     {
-        EventSystem = GameObject.FindGameObjectWithTag("EventSystem").GetComponent<EventSystem>();
+        EventSystem = GameObject.Find("EventSystem").GetComponent<EventSystem>();
         MyCanvas = GetComponent<Canvas>();
+    }
+    void Start()
+    {
         MyCanvas.enabled = false;
     }
 
