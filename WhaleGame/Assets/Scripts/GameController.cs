@@ -9,8 +9,11 @@ public class GameController : MonoBehaviour
     public float GameDuration;
     [HideInInspector]
     public float GameTimer;
+    [HideInInspector]
+    public int Score;
     void Start()
     {
+        Score = 0;
         GameOver = false;
         GameTimer = 0;
     }
