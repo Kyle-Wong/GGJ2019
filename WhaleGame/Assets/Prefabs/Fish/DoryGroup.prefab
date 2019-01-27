@@ -90,6 +90,21 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 4300002, guid: d1c20c7ed18c64571a8b18fa76736a7c, type: 3}
+    - target: {fileID: 3952029014030188125, guid: 49cab38a0443f7d4a8b340b012f5e265,
+        type: 3}
+      propertyPath: TrailModule.colorOverLifetime.maxColor.r
+      value: 0.5254902
+      objectReference: {fileID: 0}
+    - target: {fileID: 3952029014030188125, guid: 49cab38a0443f7d4a8b340b012f5e265,
+        type: 3}
+      propertyPath: TrailModule.colorOverLifetime.maxColor.g
+      value: 0.5712273
+      objectReference: {fileID: 0}
+    - target: {fileID: 3952029014030188125, guid: 49cab38a0443f7d4a8b340b012f5e265,
+        type: 3}
+      propertyPath: TrailModule.colorOverLifetime.maxColor.b
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 49cab38a0443f7d4a8b340b012f5e265, type: 3}
 --- !u!1 &3789541385223643490 stripped
