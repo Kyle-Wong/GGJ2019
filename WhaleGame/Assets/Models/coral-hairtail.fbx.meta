@@ -1,57 +1,70 @@
 fileFormatVersion: 2
-guid: 91dd60ca36781414fadc7f9668696642
+guid: 56b54d5030aff4b4fb7ba6916a7290be
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
-    100002: pCube1
-    100004: pCylinder1
-    100006: pCylinder2
-    100008: pCylinder3
-    100010: node_id10
-    100012: node_id12
-    100014: node_id4
-    100016: node_id6
-    100018: node_id8
+    100002: node_id10
+    100004: node_id11
+    100006: node_id12
+    100008: node_id13
+    100010: node_id14
+    100012: node_id15
+    100014: node_id16
+    100016: node_id17
+    100018: node_id18
+    100020: node_id19
+    100022: node_id20
+    100024: node_id21
+    100026: node_id22
+    100028: node_id23
+    100030: node_id24
+    100032: node_id25
+    100034: node_id26
+    100036: node_id27
+    100038: node_id28
+    100040: node_id29
+    100042: node_id30
+    100044: node_id32
+    100046: node_id4
+    100048: node_id5
+    100050: node_id6
+    100052: node_id7
+    100054: node_id8
+    100056: node_id9
     400000: //RootNode
-    400002: pCube1
-    400004: pCylinder1
-    400006: pCylinder2
-    400008: pCylinder3
-    400010: node_id10
-    400012: node_id12
-    400014: node_id4
-    400016: node_id6
-    400018: node_id8
-    2100000: lambert1
-    2100002: Material_75
-    2100004: Material_77
-    2100006: Material_79
-    2100008: Material_81
-    2300000: pCube1
-    2300002: pCylinder1
-    2300004: pCylinder2
-    2300006: pCylinder3
-    2300008: node_id10
-    2300010: node_id4
-    2300012: node_id6
-    2300014: node_id8
-    3300000: pCube1
-    3300002: pCylinder1
-    3300004: pCylinder2
-    3300006: pCylinder3
-    3300008: node_id10
-    3300010: node_id4
-    3300012: node_id6
-    3300014: node_id8
-    4300000: pCube1
-    4300002: pCylinder1
-    4300004: pCylinder2
-    4300006: pCylinder3
-    4300008: node_id4
-    4300010: node_id6
-    4300012: node_id8
-    4300014: node_id10
+    400002: node_id10
+    400004: node_id11
+    400006: node_id12
+    400008: node_id13
+    400010: node_id14
+    400012: node_id15
+    400014: node_id16
+    400016: node_id17
+    400018: node_id18
+    400020: node_id19
+    400022: node_id20
+    400024: node_id21
+    400026: node_id22
+    400028: node_id23
+    400030: node_id24
+    400032: node_id25
+    400034: node_id26
+    400036: node_id27
+    400038: node_id28
+    400040: node_id29
+    400042: node_id30
+    400044: node_id32
+    400046: node_id4
+    400048: node_id5
+    400050: node_id6
+    400052: node_id7
+    400054: node_id8
+    400056: node_id9
+    2100000: Material_52
+    2300000: node_id30
+    3300000: node_id30
+    4300000: node_id30
   externalObjects: {}
   materials:
     importMaterials: 1
