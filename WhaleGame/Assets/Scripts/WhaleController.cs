@@ -35,9 +35,6 @@ public class WhaleController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if(Input.GetKeyDown(KeyCode.Space)){
-            GetComponent<BuildFishTrail>().AddFish();
-        }
         switch(State)
         {
             case WhaleState.MOVE:
