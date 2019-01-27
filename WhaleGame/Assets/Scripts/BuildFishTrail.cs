@@ -75,6 +75,11 @@ public class BuildFishTrail : MonoBehaviour
         Destroy(FishList[fishIndex]);
         FishList.RemoveAt(fishIndex);
     }
+    public static void RemoveFish(GameObject toRemove)
+    {
+        int FishIndex = FishList.IndexOf(toRemove);
+        RemoveFish(FishIndex);
+    }
     void OnDrawGizmos()
     {
         
