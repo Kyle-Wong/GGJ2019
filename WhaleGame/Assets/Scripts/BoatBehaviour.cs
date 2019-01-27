@@ -122,7 +122,7 @@ public class BoatBehaviour : MonoBehaviour
 
     public void DropTrash()
     {
-        GameObject trash = Instantiate(trashPrefab, this.transform.position, Quaternion.identity);
+        GameObject trash = Instantiate(trashPrefab, this.transform.position, trashPrefab.transform.rotation);
         trash.transform.SetParent(this.transform, true);
         int direction = Random.value > 0.5f ? 1 : -1;
         trash.GetComponent<Rigidbody>().velocity = new Vector3(direction*Random.Range(minHorizontalTrashVelocity,maxHorizontalTrashVelocity),verticalTrashVelocity,0);
