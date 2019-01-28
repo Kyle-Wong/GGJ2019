@@ -44,5 +44,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnRate: 3
-  boatPrefab: {fileID: 1233417097581661307, guid: 7bb528b18b89e4532b2e8799c17aacfc,
+  AnchorsPerSide: 0
+  boatPrefab: {fileID: 6887038354821865596, guid: 3c0b9163161a8ed478deb570652018c1,
     type: 3}
+  anchorPrefab: {fileID: 0}

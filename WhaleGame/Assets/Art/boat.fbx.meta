@@ -52,7 +52,42 @@ ModelImporter:
     4300010: node_id6
     4300012: node_id8
     4300014: node_id10
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: 365
+    second: {fileID: 2800000, guid: 92c93a8dfd3d9b94c90dc55a54627739, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: 369
+    second: {fileID: 2800000, guid: a1bce2e5b219d6443bc64047280ff0e6, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: 376
+    second: {fileID: 2800000, guid: cb8a611aef2cbe24b8ceedda2b64a9a7, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: 380
+    second: {fileID: 2800000, guid: a2906de0ccd6b484bab1ddfb7a9ac11e, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: 385
+    second: {fileID: 2800000, guid: 2f9c8e2ee0421604386fe33a9f4d525d, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: 389
+    second: {fileID: 2800000, guid: 05230e2129a2d7e42806948933c3d815, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: 396
+    second: {fileID: 2800000, guid: c85f7275cb76c6948b2fc67e803f274b, type: 3}
   materials:
     importMaterials: 1
     materialName: 0
