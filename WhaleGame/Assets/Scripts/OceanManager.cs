@@ -77,7 +77,7 @@ public class OceanManager : MonoBehaviour
         while (!GameController.GameOver)
         {
             counter += Time.deltaTime;
-            if (counter >= homeSpawnRate)
+            if (counter >= spawnRate)
             {
                 //fishHomeSpawned = GameObject.FindGameObjectsWithTag("Fish").Length;
                 //if (fishHomeSpawned < fishHomeMax)
